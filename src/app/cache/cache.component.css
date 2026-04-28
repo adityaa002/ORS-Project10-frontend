@@ -1,0 +1,28 @@
+.role-bg {
+  min-height: calc(100vh - 30px); /* navbar height adjust */
+   background: url('/assets/image/addRole.jpg') no-repeat center center;
+
+  
+  background-size: cover;
+  position: relative;
+}
+
+/* overlay */
+.role-bg::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.169);
+  top: 0;
+  left: 0;
+}
+
+/* card styling */
+.role-card {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 15px;
+  position: relative;
+  z-index: 1;
+}

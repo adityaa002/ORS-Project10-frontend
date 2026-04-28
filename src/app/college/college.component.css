@@ -1,0 +1,26 @@
+.form-bg {
+  min-height: calc(100vh - 70px);
+  margin-top: 50px;
+  background: url('/assets/image/addCollege.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+}
+
+/* overlay */
+.form-bg::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+   top: 0;
+  left: 0;
+}
+
+/* card */
+.form-card {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 15px;
+  position: relative;
+  z-index: 1;
+}

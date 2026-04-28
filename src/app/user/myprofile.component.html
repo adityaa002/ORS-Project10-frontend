@@ -1,0 +1,108 @@
+<div style="        background-image: url('assets/image/myProfile.jpg');
+
+            min-height: 100vh;
+            padding-top: 80px;">
+
+    <div class="container d-flex justify-content-center">
+        <div class="card shadow-lg p-4" style="width: 500px; border-radius: 12px;">
+
+            <h3 class="text-center text-primary mb-3"><b>My Profile</b></h3>
+
+            <!-- Alerts -->
+            <div class="text-center">
+                <div *ngIf="!form.error && form.message" class="alert alert-success alert-dismissible fade show">
+                    {{ form.message }}
+                    <button type="button" class="btn-close" (click)="form.message=''"></button>
+                </div>
+
+                <div *ngIf="form.error && form.message" class="alert alert-danger alert-dismissible fade show">
+                    {{ form.message }}
+                    <button type="button" class="btn-close" (click)="form.message=''"></button>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="mb-2">
+                <label>First Name *</label>
+                <input type="text" class="form-control form-control-sm" [(ngModel)]="form.data.firstName"
+                    placeholder="Enter First Name">
+                <small class="text-danger">{{form.inputerror.firstName}}</small>
+            </div>
+
+            <div class="mb-2">
+                <label>Last Name *</label>
+                <input type="text" class="form-control form-control-sm" [(ngModel)]="form.data.lastName"
+                    placeholder="Enter Last Name">
+                <small class="text-danger">{{form.inputerror.lastName}}</small>
+            </div>
+
+            <div class="mb-2">
+                <label>Login Id *</label>
+                <input type="text" class="form-control form-control-sm" [(ngModel)]="form.data.loginId"
+                    placeholder="Enter Email">
+                <small class="text-danger">{{form.inputerror.loginId}}</small>
+            </div>
+
+            <div class="mb-2">
+                <label>Date of Birth *</label>
+                <input type="date" class="form-control form-control-sm" [(ngModel)]="form.data.dob"
+                    [ngModel]="form.data.dob | date:'yyyy-MM-dd'">
+                <small class="text-danger">{{form.inputerror.dob}}</small>
+            </div>
+
+            <div class="mb-2">
+                <label>Gender *</label>
+                <select class="form-control form-control-sm" [(ngModel)]="form.data.gender">
+                    <option value="undefined">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <small class="text-danger">{{form.inputerror.gender}}</small>
+            </div>
+
+            <!-- Image -->
+            <div class="mb-3 text-center">
+                <label>Profile Image *</label><br>
+                <img [src]="form.data.imageId ? 
+                     'http://localhost:8080/User/profilePic/' + form.data.id : 
+                     'assets/image/defaultProfile.png'" class="img-thumbnail mb-2" style="height:80px;width:85px;">
+                <br>
+                <input type="file" (change)="onFileSelected($event)" class="form-control form-control-sm">
+                <small class="text-danger">{{form.inputerror.imageId}}</small>
+            </div>
+
+            <div class="mb-2">
+                <label>Mobile *</label>
+                <input type="text" class="form-control form-control-sm" [(ngModel)]="form.data.phone" maxlength="10">
+                <small class="text-danger">{{form.inputerror.phone}}</small>
+            </div>
+
+            <div class="mb-2">
+                <label>Alternate Mobile *</label>
+                <input type="text" class="form-control form-control-sm" [(ngModel)]="form.data.alternateMobile"
+                    maxlength="10">
+                <small class="text-danger">{{form.inputerror.alternateMobile}}</small>
+            </div>
+
+            <div class="mb-3">
+                <label>Status *</label>
+                <select class="form-control form-control-sm" [(ngModel)]="form.data.status">
+                    <option value="undefined">Select</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+                <small class="text-danger">{{form.inputerror.status}}</small>
+            </div>
+
+            <!-- Buttons -->
+            <div class="text-center">
+                <button class="btn btn-primary btn-sm me-2" (click)="submit()">Update</button>
+                <button class="btn btn-dark btn-sm" (click)="forward('/changepassword')">
+                    Change Password
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</div>

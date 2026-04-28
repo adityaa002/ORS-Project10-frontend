@@ -1,0 +1,115 @@
+<div class="form-bg d-flex justify-content-center align-items-center">
+
+  <div class="card shadow-lg p-4 form-card">
+
+    <!-- Header -->
+    <h3 class="text-center text-primary mb-3">
+      <span *ngIf="!form.data.id">Add Student</span>
+      <span *ngIf="form.data.id > 0">Update Student</span>
+    </h3>
+
+    <!-- Message -->
+    <div *ngIf="form.message"
+         class="alert text-center"
+         [ngClass]="form.error ? 'alert-danger' : 'alert-success'">
+      {{ form.message }}
+    </div>
+
+    <!-- Enrol No -->
+    <div class="mb-3">
+      <label class="form-label">Enrol No <span class="text-danger">*</span></label>
+      <input type="text" class="form-control"
+             name="enrolNo"
+             [(ngModel)]="form.data.enrolNo"
+             placeholder="Enter Enrol No">
+      <small class="text-danger" *ngIf="form.inputerror.enrolNo">
+        {{form.inputerror.enrolNo}}
+      </small>
+    </div>
+
+    <!-- First Name -->
+    <div class="mb-3">
+      <label class="form-label">First Name <span class="text-danger">*</span></label>
+      <input type="text" class="form-control"
+             name="firstName"
+             [(ngModel)]="form.data.firstName"
+             placeholder="Enter First Name">
+      <small class="text-danger" *ngIf="form.inputerror.firstName">
+        {{form.inputerror.firstName}}
+      </small>
+    </div>
+
+    <!-- Last Name -->
+    <div class="mb-3">
+      <label class="form-label">Last Name <span class="text-danger">*</span></label>
+      <input type="text" class="form-control"
+             name="lastName"
+             [(ngModel)]="form.data.lastName"
+             placeholder="Enter Last Name">
+      <small class="text-danger" *ngIf="form.inputerror.lastName">
+        {{form.inputerror.lastName}}
+      </small>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <label class="form-label">Email Id <span class="text-danger">*</span></label>
+      <input type="text" class="form-control"
+             name="email"
+             [(ngModel)]="form.data.email"
+             placeholder="Enter Email ID">
+      <small class="text-danger" *ngIf="form.inputerror.email">
+        {{form.inputerror.email}}
+      </small>
+    </div>
+
+    <!-- DOB -->
+    <div class="mb-3">
+      <label class="form-label">Date of Birth <span class="text-danger">*</span></label>
+      <input type="date" class="form-control"
+             name="dob"
+             [(ngModel)]="form.data.dob"
+             [ngModel]="form.data.dob | date:'yyyy-MM-dd'">
+      <small class="text-danger" *ngIf="form.inputerror.dob">
+        {{form.inputerror.dob}}
+      </small>
+    </div>
+
+    <!-- College -->
+    <div class="mb-3">
+      <label class="form-label">College <span class="text-danger">*</span></label>
+      <select class="form-control"
+              name="collegeId"
+              [(ngModel)]="form.data.collegeId">
+        <option value="">Select College</option>
+        <option *ngFor="let obj of form.preload.collegeList" [value]="obj.key">
+          {{obj.value}}
+        </option>
+      </select>
+      <small class="text-danger" *ngIf="form.inputerror.collegeId">
+        {{form.inputerror.collegeId}}
+      </small>
+    </div>
+
+    <!-- Mobile -->
+    <div class="mb-3">
+      <label class="form-label">Mobile No <span class="text-danger">*</span></label>
+      <input type="text" class="form-control"
+             name="phoneNo"
+             maxlength="10"
+             [(ngModel)]="form.data.phoneNo"
+             placeholder="Enter Mobile No">
+      <small class="text-danger" *ngIf="form.inputerror.phoneNo">
+        {{form.inputerror.phoneNo}}
+      </small>
+    </div>
+
+    <!-- Buttons -->
+    <div class="text-center mt-4">
+      <button class="btn btn-success px-4 me-2" (click)="submit()">Save</button>
+      <button class="btn btn-primary px-4" (click)="forward('studentlist')">List</button>
+    </div>
+
+  </div>
+
+</div>

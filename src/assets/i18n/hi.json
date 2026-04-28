@@ -1,0 +1,179 @@
+{
+    "Login": "लॉगिन",
+    "Sign In": "साइन इन",
+    "Sign Up": "साइन अप",
+    "Forget my password?": "क्या आप अपना पासवर्ड भूल गए?",
+    "LoginId": "लॉगिन आईडी",
+    "Password": "पासवर्ड",
+    "UserRegistration": "उपयोगकर्ता पंजीकरण",
+    "FirstName": "पहला नाम",
+    "LastName": "अंतिम नाम",
+    "DateOfBirth": "जन्म तिथि",
+    "Gender": "लिंग",
+    "Mobile": "मोबाइल",
+    "Buttons": {
+        "SignUp": "साइन अप",
+        "Reset": "रीसेट"
+    },
+    "GenderOptions": {
+        "Select": "------------चुनें------------",
+        "Male": "पुरुष",
+        "Female": "महिला"
+    },
+    "Greetings": {
+        "HiUser": "नमस्ते, {{name}} ( {{role}} )",
+        "HiGuest": "नमस्ते, अतिथि"
+    },
+    "Links": {
+        "Dashboard": "डैशबोर्ड",
+        "Login": "लॉग इन",
+        "logout": "लॉग आउट",
+        "MyProfile": "मेरी प्रोफाइल",
+        "ChangePassword": "पासवर्ड बदलें",
+        "User": "उपयोगकर्ता",
+        "AddUser": "उपयोगकर्ता जोड़ें",
+        "UserList": "उपयोगकर्ता सूची",
+        "Role": "भूमिका",
+        "AddRole": "भूमिका जोड़ें",
+        "RoleList": "भूमिका सूची",
+        "College": "कॉलेज",
+        "AddCollege": "कॉलेज जोड़ें",
+        "CollegeList": "कॉलेज सूची",
+        "Student": "छात्र",
+        "AddStudent": "छात्र जोड़ें",
+        "StudentList": "छात्र सूची",
+        "Marksheet": "मार्कशीट",
+        "AddMarksheet": "मार्कशीट जोड़ें",
+        "MarksheetList": "मार्कशीट सूची",
+        "MarksheetMeritList": "मार्कशीट मेरिट सूची",
+        "Course": "कोर्स",
+        "AddCourse": "कोर्स जोड़ें",
+        "CourseList": "कोर्स सूची",
+        "Subject": "विषय",
+        "AddSubject": "विषय जोड़ें",
+        "SubjectList": "विषय सूची",
+        "Timetable": "टाइमटेबल",
+        "AddTimetable": "टाइमटेबल जोड़ें",
+        "TimetableList": "टाइमटेबल सूची",
+        "Faculty": "फैकल्टी",
+        "AddFaculty": "फैकल्टी जोड़ें",
+        "FacultyList": "फैकल्टी सूची",
+        "Audit": "अंकेक्षण",
+        "AuditList": "अंकेक्षण सूची",
+        "Resolution": "रिज़ॉल्यूशन",
+        "AddResolution": "रिज़ॉल्यूशन जोड़ें",
+        "ResolutionList": "रिज़ॉल्यूशन सूची",
+        "Prescription": "प्रिस्क्रिप्शन",
+        "AddPrescription": "प्रिस्क्रिप्शन जोड़ें",
+        "PrescriptionList": "प्रिस्क्रिप्शन सूची",
+        "Quota": "कोटा",
+        "AddQuota": "कोटा जोड़ें",
+        "QuotaList": "कोटा सूची",
+        "Decryption": "डिक्रिप्शन",
+        "AddDecryption": "डिक्रिप्शन जोड़ें",
+        "DecryptionList": "डिक्रिप्शन सूची",
+        "BlockList": "ब्लॉक सूची",
+        "AddBlockList": "ब्लॉक सूची जोड़ें",
+        "BlockListList": "ब्लॉक सूची सूची",
+        "Rule": "नियम",
+        "AddRule": "नियम जोड़ें",
+        "RuleList": "नियम सूची",
+        "Subscription": "सब्सक्रिप्शन",
+        "AddSubscription": "सब्सक्रिप्शन जोड़ें",
+        "SubscriptionList": "सब्सक्रिप्शन सूची",
+        "Cache": "कैश",
+        "AddCache": "कैश जोड़ें",
+        "CacheList": "कैश सूची"
+    },
+    "Navbar": {
+        "Role": "भूमिका"
+    },
+    "LocaleSelect": {
+        "Select": "-------चुनें-------",
+        "English": "अंग्रेज़ी",
+        "Hindi": "हिंदी"
+    },
+    "UserForm": {
+        "AddUser": "उपयोगकर्ता जोड़ें",
+        "UpdateUser": "उपयोगकर्ता अपडेट करें",
+        "FirstName": "पहला नाम",
+        "LastName": "अंतिम नाम",
+        "LoginId": "लॉगिन आईडी",
+        "Password": "पासवर्ड",
+        "DateOfBirth": "जन्म तिथि",
+        "Gender": "लिंग",
+        "image": "फोटो अपलोड करें",
+        "Role": "भूमिका",
+        "Mobile": "मोबाइल",
+        "AlternateMobile": "वैकल्पिक मोबाइल",
+        "Status": "स्थिति",
+        "Placeholders": {
+            "FirstName": "पहला नाम दर्ज करें",
+            "LastName": "अंतिम नाम दर्ज करें",
+            "LoginId": "लॉगिन आईडी दर्ज करें",
+            "Password": "पासवर्ड दर्ज करें",
+            "DateOfBirth": "जन्म तिथि चुनें",
+            "Mobile": "मोबाइल नंबर दर्ज करें",
+            "AlternateMobile": "वैकल्पिक मोबाइल नंबर दर्ज करें"
+        },
+        "SelectOptions": {
+            "Select": "------------चुनें------------",
+            "Male": "पुरुष",
+            "Female": "महिला",
+            "Active": "सक्रिय",
+            "Inactive": "निष्क्रिय"
+        },
+        "Buttons": {
+            "Save": "सहेजें",
+            "List": "सूची"
+        }
+    },
+    "CacheForm": {
+        "AddCache": "कैश जोड़ें",
+        "UpdateCache": "कैश अपडेट करें",
+        "CacheCode": "कैश कोड",
+        "KeyName": "कुंजी नाम",
+        "Value": "मान",
+        "Status": "स्थिति",
+        "Placeholders": {
+            "CacheCode": "कैश कोड दर्ज करें",
+            "KeyName": "कुंजी नाम दर्ज करें",
+            "Value": "मान दर्ज करें"
+        },
+        "StatusOptions": {
+            "Select": "-------चुनें-------",
+            "Active": "सक्रिय",
+            "Inactive": "निष्क्रिय"
+        },
+        "Buttons": {
+            "Save": "सहेजें",
+            "Reset": "रीसेट"
+        }
+    },
+    "CacheList": {
+        "Title": "कैश सूची",
+        "SearchByKey": "कुंजी नाम से खोजें",
+        "SelectCacheCode": "कैश कोड चुनें",
+        "Table": {
+            "SNo": "क्रम संख्या",
+            "CacheCode": "कैश कोड",
+            "KeyName": "कुंजी नाम",
+            "Value": "मान",
+            "Status": "स्थिति",
+            "Edit": "संपादित करें"
+        },
+        "Buttons": {
+            "Search": "खोजें",
+            "Reset": "रीसेट",
+            "Previous": "पिछला",
+            "Next": "अगला",
+            "New": "नया",
+            "Delete": "हटाएं",
+            "Back": "वापस"
+        },
+        "Status": {
+            "ACTIVE": "सक्रिय",
+            "INACTIVE": "निष्क्रिय"
+        }
+    }
+}

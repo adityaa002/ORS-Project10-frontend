@@ -1,0 +1,367 @@
+<div class="hm">
+    <div class="header">
+        <!-- Include header if needed -->
+    </div>
+
+    <div class="container-fluid mt-5">
+        <form>
+            <div class="row pt-3">
+                <!-- Empty column for centering -->
+                <div class="col-md-4 mb-4"></div>
+
+                <!-- Main form card -->
+                <div class="col-md-4 mb-4">
+                    <div class="card input-group-addon">
+                        <div class="card-body">
+
+                            <!-- Page Header -->
+                            <h3 class="text-center default-text text-primary mb-4">
+                                <span *ngIf="!form.data.id">{{ 'UserForm.AddUser' | translate }}</span>
+                                <span *ngIf="form.data.id > 0">{{ 'UserForm.UpdateUser' | translate }}</span>
+                            </h3>
+
+                            <!-- Success/Error Messages -->
+                            <div *ngIf="form.message" class="alert alert-dismissible fade show mb-4"
+                                 [ngClass]="form.error ? 'alert-danger' : 'alert-success'"
+                                 role="alert">
+                                <h5 class="text-center mb-0">{{ form.message }}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+
+                            <!-- Form Body -->
+                            <div>
+
+                                <!-- First Name -->
+                                <div class="mb-3">
+                                    <span class="ps-sm-5"><b>{{ 'UserForm.FirstName' | translate }}</b>
+                                        <span style="color: red;">*</span>
+                                    </span>
+                                    <div class="col-sm-12">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-user grey-text" style="font-size: 3cqmin;"></i>
+                                                </div>
+                                            </div>
+                                            <input type="text" class="form-control" name="firstName"
+                                                   [(ngModel)]="form.data.firstName"
+                                                   placeholder="{{ 'UserForm.Placeholders.FirstName' | translate }}">
+                                        </div>
+                                    </div>
+                                    <small class="text-danger ps-sm-5 d-block" *ngIf="form.inputerror.firstName">
+                                        {{form.inputerror.firstName}}
+                                    </small>
+                                </div>
+
+                                <!-- Last Name -->
+                                <div class="mb-3">
+                                    <span class="ps-sm-5"><b>{{ 'UserForm.LastName' | translate }}</b>
+                                        <span style="color: red;">*</span>
+                                    </span>
+                                    <div class="col-sm-12">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-user-circle grey-text" style="font-size: 3cqmin;"></i>
+                                                </div>
+                                            </div>
+                                            <input type="text" class="form-control" name="lastName"
+                                                   [(ngModel)]="form.data.lastName"
+                                                   placeholder="{{ 'UserForm.Placeholders.LastName' | translate }}">
+                                        </div>
+                                    </div>
+                                    <small class="text-danger ps-sm-5 d-block" *ngIf="form.inputerror.lastName">
+                                        {{form.inputerror.lastName}}
+                                    </small>
+                                </div>
+
+                                <!-- Login ID -->
+                                <div class="mb-3">
+                                    <span class="ps-sm-5"><b>{{ 'UserForm.LoginId' | translate }}</b>
+                                        <span style="color: red;">*</span>
+                                    </span>
+                                    <div class="col-sm-12">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-envelope grey-text" style="font-size: 3cqmin;"></i>
+                                                </div>
+                                            </div>
+                                            <input type="text" class="form-control" name="loginId"
+                                                   [(ngModel)]="form.data.loginId"
+                                                   placeholder="{{ 'UserForm.Placeholders.LoginId' | translate }}">
+                                        </div>
+                                    </div>
+                                    <small class="text-danger ps-sm-5 d-block" *ngIf="form.inputerror.loginId">
+                                        {{form.inputerror.loginId}}
+                                    </small>
+                                </div>
+
+                                <!-- Password (Conditionally shown for Add User) -->
+                                <ng-container *ngIf="!form.data.id || form.data.id === 0">
+                                    <div class="mb-3">
+                                        <span class="ps-sm-5"><b>{{ 'UserForm.Password' | translate }}</b>
+                                            <span style="color: red;">*</span>
+                                        </span>
+                                        <div class="col-sm-12">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fa fa-key grey-text" style="font-size: 3cqmin;"></i>
+                                                    </div>
+                                                </div>
+                                                <input type="password" class="form-control" name="password"
+                                                       [(ngModel)]="form.data.password"
+                                                       placeholder="{{ 'UserForm.Placeholders.Password' | translate }}">
+                                            </div>
+                                        </div>
+                                        <small class="text-danger ps-sm-5 d-block" *ngIf="form.inputerror.password">
+                                            {{form.inputerror.password}}
+                                        </small>
+                                    </div>
+                                </ng-container>
+
+                                <!-- Email ID -->
+                                <div class="mb-3">
+                                    <span class="ps-sm-5"><b>Email Id</b>
+                                        <span style="color: red;">*</span>
+                                    </span>
+                                    <div class="col-sm-12">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-envelope grey-text" style="font-size: 3cqmin;"></i>
+                                                </div>
+                                            </div>
+                                            <input type="text" class="form-control" name="emailId"
+                                                   [(ngModel)]="form.data.loginId"
+                                                   placeholder="Email Id">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Mobile Number -->
+                                <div class="mb-3">
+                                    <span class="ps-sm-5"><b>{{ 'UserForm.Mobile' | translate }}</b>
+                                        <span style="color: red;">*</span>
+                                    </span>
+                                    <div class="col-sm-12">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-phone-square grey-text" style="font-size: 3cqmin;"></i>
+                                                </div>
+                                            </div>
+                                            <input type="text" class="form-control" name="phone"
+                                                   [(ngModel)]="form.data.phone" maxlength="10"
+                                                   placeholder="{{ 'UserForm.Placeholders.Mobile' | translate }}">
+                                        </div>
+                                    </div>
+                                    <small class="text-danger ps-sm-5 d-block" *ngIf="form.inputerror.phone">
+                                        {{form.inputerror.phone}}
+                                    </small>
+                                </div>
+
+                                <!-- Alternate Mobile -->
+                                <div class="mb-3">
+                                    <span class="ps-sm-5"><b>{{ 'UserForm.AlternateMobile' | translate }}</b>
+                                        <span style="color: red;">*</span>
+                                    </span>
+                                    <div class="col-sm-12">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-phone-square grey-text" style="font-size: 3cqmin;"></i>
+                                                </div>
+                                            </div>
+                                            <input type="text" class="form-control" name="alternateMobile"
+                                                   [(ngModel)]="form.data.alternateMobile" maxlength="10"
+                                                   placeholder="{{ 'UserForm.Placeholders.AlternateMobile' | translate }}">
+                                        </div>
+                                    </div>
+                                    <small class="text-danger ps-sm-5 d-block" *ngIf="form.inputerror.alternateMobile">
+                                        {{form.inputerror.alternateMobile}}
+                                    </small>
+                                </div>
+
+                                <!-- Role -->
+                                <div class="mb-3">
+                                    <span class="ps-sm-5"><b>{{ 'UserForm.Role' | translate }}</b>
+                                        <span style="color: red;">*</span>
+                                    </span>
+                                    <div class="col-sm-12">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-user grey-text" style="font-size: 3cqmin;"></i>
+                                                </div>
+                                            </div>
+                                            <select class="form-control" name="roleId" [(ngModel)]="form.data.roleId">
+                                                <option value="">{{ 'UserForm.SelectOptions.Select' | translate }}</option>
+                                                <option *ngFor="let obj of form.preload.roleList" [value]="obj.key">
+                                                    {{obj.value}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <small class="text-danger ps-sm-5 d-block" *ngIf="form.inputerror.roleId">
+                                        {{form.inputerror.roleId}}
+                                    </small>
+                                </div>
+
+                                <!-- Gender -->
+                                <div class="mb-3">
+                                    <span class="ps-sm-5"><b>{{ 'UserForm.Gender' | translate }}</b>
+                                        <span style="color: red;">*</span>
+                                    </span>
+                                    <div class="col-sm-12">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-venus-mars grey-text" style="font-size: 3cqmin;"></i>
+                                                </div>
+                                            </div>
+                                            <select class="form-control" name="gender" [(ngModel)]="form.data.gender">
+                                                <option value="undefined">{{ 'UserForm.SelectOptions.Select' | translate }}</option>
+                                                <option value="Male">{{ 'UserForm.SelectOptions.Male' | translate }}</option>
+                                                <option value="Female">{{ 'UserForm.SelectOptions.Female' | translate }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <small class="text-danger ps-sm-5 d-block" *ngIf="form.inputerror.gender">
+                                        {{form.inputerror.gender}}
+                                    </small>
+                                </div>
+
+                                <!-- Date of Birth -->
+                                <div class="mb-3">
+                                    <span class="ps-sm-5"><b>{{ 'UserForm.DateOfBirth' | translate }}</b>
+                                        <span style="color: red;">*</span>
+                                    </span>
+                                    <div class="col-sm-12">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-calendar grey-text" style="font-size: 3cqmin;"></i>
+                                                </div>
+                                            </div>
+                                            <input type="date" class="form-control" name="dob"
+                                                   [(ngModel)]="form.data.dob"
+                                                   [ngModel]="form.data.dob | date:'yyyy-MM-dd'"
+                                                   placeholder="{{ 'UserForm.Placeholders.DateOfBirth' | translate }}">
+                                        </div>
+                                    </div>
+                                    <small class="text-danger ps-sm-5 d-block" *ngIf="form.inputerror.dob">
+                                        {{form.inputerror.dob}}
+                                    </small>
+                                </div>
+
+                                <!-- Profile Image -->
+                                <div class="mb-3">
+                                    <span class="ps-sm-5"><b>{{ 'UserForm.image' | translate }}</b>
+                                        <span style="color: red;">*</span>
+                                    </span>
+                                    <div class="col-sm-12">
+                                        <div class="mb-2">
+                                            <img [src]="form.data.imageId ? 
+                                                 'http://localhost:8080/User/profilePic/' + form.data.id : 
+                                                 'assets/image/defaultProfile.png'" 
+                                                 alt="Profile" class="img-thumbnail" height="80" width="85">
+                                        </div>
+                                        <input type="file" class="form-control" name= "imageId" (change)="onFileSelected($event)" 
+                                               accept="image/*">
+                                    </div>
+                                    <small class="text-danger ps-sm-5 d-block" *ngIf="form.inputerror.imageId">
+                                        {{form.inputerror.imageId}}
+                                    </small>
+                                </div>
+
+                                <!-- Status -->
+                                <div class="mb-3">
+                                    <span class="ps-sm-5"><b>{{ 'UserForm.Status' | translate }}</b>
+                                        <span style="color: red;">*</span>
+                                    </span>
+                                    <div class="col-sm-12">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-info-circle grey-text" style="font-size: 3cqmin;"></i>
+                                                </div>
+                                            </div>
+                                            <select class="form-control" name="status" [(ngModel)]="form.data.status">
+                                                <option value="undefined">{{ 'UserForm.SelectOptions.Select' | translate }}</option>
+                                                <option value="Active">{{ 'UserForm.SelectOptions.Active' | translate }}</option>
+                                                <option value="Inactive">{{ 'UserForm.SelectOptions.Inactive' | translate }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <small class="text-danger ps-sm-5 d-block" *ngIf="form.inputerror.status">
+                                        {{form.inputerror.status}}
+                                    </small>
+                                </div>
+
+                                <!-- Form Buttons -->
+                                <div class="text-center mt-5">
+                                    <div *ngIf="!form.data.id">
+                                        <button type="button" class="btn btn-success btn-md me-2" 
+                                                style="font-size: 17px" (click)="submit()">
+                                            {{ 'UserForm.Buttons.Save' | translate }}
+                                        </button>
+                                        <button type="button" class="btn btn-warning btn-md" 
+                                                style="font-size: 17px" (click)="reset()">
+                                            Reset
+                                        </button>
+                                    </div>
+                                    <div *ngIf="form.data.id > 0">
+                                        <button type="button" class="btn btn-success btn-md me-2" 
+                                                style="font-size: 17px" (click)="submit()">
+                                            {{ 'Update' | translate }}
+                                        </button>
+                                        <button type="button" class="btn btn-warning btn-md" 
+                                                style="font-size: 17px" (click)="forward('/userlist')">
+                                            {{ 'UserForm.Buttons.List' | translate }}
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty column for centering -->
+                <div class="col-md-4 mb-4"></div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    i.css {
+        border: 2px solid #8080803b;
+        padding-left: 10px;
+        padding-bottom: 11px;
+        background-color: #565651;
+    }
+
+    .input-group-addon {
+        box-shadow: 9px 8px 7px #01b897;
+    }
+
+    .hm {
+        background-image: url('assets/image/addUser.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        padding-top: 75px;
+        min-height: 100vh;
+    }
+
+    .grey-text {
+        color: #878787;
+    }
+
+    .default-text {
+        font-weight: 600;
+    }
+</style>

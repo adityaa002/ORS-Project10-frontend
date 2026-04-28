@@ -1,0 +1,140 @@
+<div class="role-list-bg container-fluid mt-5 pt-4">
+
+  <h2 class="text-center text-primary mb-3">Block List</h2>
+
+  <!-- Messages -->
+  <div class="text-center mb-3">
+    <div *ngIf="form.message"
+         class="alert d-inline-block"
+         [ngClass]="form.error ? 'alert-danger' : 'alert-success'">
+      {{ form.message }}
+    </div>
+  </div>
+
+  <div *ngIf="form.list.length > 0">
+
+    <!-- Search -->
+    <div class="row justify-content-center mb-3">
+
+      <div class="col-md-2">
+        <input type="text" class="form-control form-control-sm"
+               [(ngModel)]="form.searchParams.reason"
+               placeholder="Reason">
+      </div>
+
+      <div class="col-md-2">
+        <input type="text" class="form-control form-control-sm"
+               [(ngModel)]="form.searchParams.blockCode"
+               placeholder="Block Code">
+      </div>
+
+      <div class="col-md-2">
+        <input type="text" class="form-control form-control-sm"
+               [(ngModel)]="form.searchParams.userName"
+               placeholder="User Name">
+      </div>
+
+      <div class="col-md-2">
+        <select class="form-control form-control-sm"
+                [(ngModel)]="form.searchParams.status">
+          <option value="">Status</option>
+          <option value="Active">Active</option>
+          <option value="Inactive">Inactive</option>
+        </select>
+      </div>
+
+      <div class="col-md-3 text-center">
+        <button class="btn btn-primary btn-sm me-2" (click)="search()">Search</button>
+        <button class="btn btn-dark btn-sm" (click)="reset()">Reset</button>
+      </div>
+
+    </div>
+
+    <!-- Table -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover text-center align-middle">
+
+        <thead class="table-secondary">
+          <tr>
+            <th>
+              <input type="checkbox"
+                     [(ngModel)]="isMasterSel"
+                     (change)="checkUncheckAll($event)" />
+            </th>
+            <th>S.No</th>
+            <th>Reason</th>
+            <th>Block Code</th>
+            <th>User Name</th>
+            <th>Status</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let m of form.list; let i = index">
+            <td>
+              <input type="checkbox"
+                     #checkboxes
+                     (change)="checklistUpdate()"
+                     [id]="m.id">
+            </td>
+            <td>{{(form.pageNo*5)+i+1}}</td>
+            <td>{{m.reason}}</td>
+            <td>{{m.blockCode}}</td>
+            <td>{{m.userName}}</td>
+            <td>{{m.status}}</td>
+            <td>
+              <button class="btn btn-info btn-sm text-white"
+                      (click)="forward('/blockList/' + m.id)">
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+
+    <!-- Buttons -->
+    <div class="row mt-3">
+
+      <div class="col-md-3">
+        <button class="btn btn-warning btn-sm"
+                (click)="previous()"
+                [disabled]="form.pageNo == 0">
+          Previous
+        </button>
+      </div>
+
+      <div class="col-md-3 text-center">
+        <button class="btn btn-primary btn-sm"
+                (click)="forward('/blocklist')">
+          New
+        </button>
+      </div>
+
+      <div class="col-md-3 text-center">
+        <button class="btn btn-danger btn-sm"
+                (click)="deleteMany()">
+          Delete
+        </button>
+      </div>
+
+      <div class="col-md-3 text-end">
+        <button class="btn btn-warning btn-sm"
+                (click)="next()"
+                [disabled]="form.nextListSize == 0">
+          Next
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- No Data -->
+  <div *ngIf="form.list.length == 0" class="text-center mt-4">
+    <button class="btn btn-primary btn-sm" (click)="reset()">Back</button>
+  </div>
+
+</div>

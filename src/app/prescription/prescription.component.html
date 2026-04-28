@@ -1,0 +1,52 @@
+<div align="center">
+    <h1 *ngIf="!form.data.id" align="center" style="margin-bottom: 5px; color: navy">Add Prescription</h1>
+    <h1 *ngIf="form.data.id > 0" align="center" style="margin-bottom: 5px; color: navy">Update Prescription</h1>
+
+
+    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
+        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
+        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
+    </div>
+
+    <table>
+        <tr>
+            <th align="left">Prescription Id:<span style="color: red">*</span></th>
+            <td align="center"><input type="text" name="prescriptionId" [(ngModel)]="form.data.prescriptionId"
+                    placeholder="Enter prescription Id"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.prescriptionId}}</td>
+        </tr>
+
+        <tr>
+             <th align="left">Doctor Name:<span style="color: red">*</span></th>
+            <td align="center"><input type="text" name="doctorName" [(ngModel)]="form.data.doctorName"
+                    placeholder="Enter doctorName "></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.doctorName}}</td>
+        </tr>
+
+        <tr>
+             <th align="left">Patient Name:<span style="color: red">*</span></th>
+            <td align="center"><input type="text" name="patientName" [(ngModel)]="form.data.patientName"
+                    placeholder="Enter patientName "></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.patientName}}</td>
+        </tr>
+
+         <tr>
+            <th align="left">Prescribed Date:<span style="color: red">*</span></th>
+            <td><input type="date" name="dob" [(ngModel)]="form.data.prescribedDate" [ngModel]="form.data.prescribedDate | date:'yyyy-MM-dd'"
+                    placeholder="enter prescribedDate" style="width: 97%;"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.prescribedDate}}</td>
+        </tr>
+
+        <tr></tr>
+
+        <tr>
+            <th></th>
+            <td align="left" colspan="2">
+                <button (click)="submit()">save</button> &nbsp;
+                                <button *ngIf="!form.data.id" (click)="reset()">reset</button>&nbsp;
+
+                <button *ngIf="form.data.id" (click)="forward('/prescriptionList')">List</button>&nbsp;
+            </td>
+        </tr>
+    </table>
+</div>

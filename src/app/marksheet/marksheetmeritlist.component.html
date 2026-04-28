@@ -1,0 +1,121 @@
+<app-navbar></app-navbar>
+
+<div class="list-bg container-fluid pt-4">
+
+  <h2 class="text-center text-white mb-3">Marksheet Merit List</h2>
+
+  <!-- Messages -->
+  <div class="text-center mb-3">
+    <div *ngIf="form.message"
+         class="alert d-inline-block"
+         [ngClass]="form.error ? 'alert-danger' : 'alert-success'">
+      {{ form.message }}
+    </div>
+  </div>
+
+  <!-- Top Actions -->
+  <div class="row mb-3">
+    <div class="col-md-6"></div>
+
+    <div class="col-md-6 text-end">
+      <button class="btn btn-success btn-sm"
+              (click)="forward('/jasper')">
+        🖨 Print
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="form.list.length > 0">
+
+    <!-- Table -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover text-center align-middle shadow">
+
+        <thead class="table-secondary">
+          <tr>
+            <th>
+              <input type="checkbox"
+                     [(ngModel)]="isMasterSel"
+                     (change)="checkUncheckAll($event)" />
+            </th>
+            <th>Rank</th>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Physics</th>
+            <th>Chemistry</th>
+            <th>Maths</th>
+            <th>Total</th>
+            <th>Percentage</th>
+           </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let m of form.list; let i = index">
+
+            <td>
+              <input type="checkbox"
+                     (change)="checklistUpdate()"
+                     [id]="m.id">
+            </td>
+
+            <!-- Rank 🏆 -->
+            <td>
+              <span >
+                {{(form.pageNo*5)+i+1}}
+              </span>
+            </td>
+
+            <td>{{m.rollNo}}</td>
+            <td>{{m.name}}</td>
+            <td>{{m.physics}}</td>
+            <td>{{m.chemistry}}</td>
+            <td>{{m.maths}}</td>
+
+            <!-- Total -->
+            <td class="fw-bold">
+              {{m.physics + m.chemistry + m.maths}}
+            </td>
+
+            <!-- Percentage -->
+            <td>
+              {{ ((m.physics + m.chemistry + m.maths)/3) | number:'1.2-2' }} %
+            </td>
+
+            <!-- Pass/Fail -->
+            
+
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="row mt-3">
+
+      <div class="col-md-6">
+        <button class="btn btn-warning btn-sm"
+                (click)="previous()"
+                [disabled]="form.pageNo == 0">
+          Previous
+        </button>
+      </div>
+
+      <div class="col-md-6 text-end">
+        <button class="btn btn-warning btn-sm"
+                (click)="next()"
+                [disabled]="form.nextListSize == 0">
+          Next
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- No Data -->
+  <div *ngIf="form.list.length == 0" class="text-center mt-4">
+    <button class="btn btn-primary btn-sm" (click)="reset()">Back</button>
+  </div>
+
+</div>

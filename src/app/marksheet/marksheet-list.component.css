@@ -1,0 +1,16 @@
+.list-bg {
+  min-height: calc(100vh - 70px);
+  margin-top: 30px;
+  background: url('/assets/image/marksheetList.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  padding: 20px;
+}
+
+
+
+/* content above overlay */
+.list-bg > * {
+  position: relative;
+  z-index: 1;
+}

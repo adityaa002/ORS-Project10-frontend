@@ -1,0 +1,290 @@
+<style>
+  /* Reset */
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  /* Fix navbar position */
+  .custom-navbar {
+    background: linear-gradient(0deg, rgb(5, 153, 138) 0%, rgb(78, 218, 199) 90%);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  /* Push content below navbar */
+  body {
+    padding-top: 100px;
+    /* adjust if navbar height differs */
+  }
+
+  /* White text */
+  .navbar .nav-link,
+  .navbar .navbar-brand {
+    color: white !important;
+    font-weight: 500;
+  }
+
+  /* Hover */
+  .navbar .nav-link:hover {
+    color: #eee !important;
+  }
+
+  /* Dropdown */
+  .dropdown-menu {
+    background-color: #fff;
+    border-radius: 6px;
+  }
+
+  .dropdown-item {
+    color: #000 !important;
+  }
+
+  .dropdown-item:hover {
+    background-color: #f1f1f1;
+  }
+
+  /* Logo */
+  .logo {
+    width: 120px;
+  }
+
+  /* Prevent unwanted full page scroll (optional) */
+  .body {
+    min-height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top">
+  <!-- LEFT: Dashboard -->
+  <a class="navbar-brand" [routerLink]="['/dashboard']">
+    {{ 'Links.Dashboard' | translate }}
+  </a>
+
+  <!-- Toggle -->
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+
+    <!-- LEFT MENU -->
+    <ul class="navbar-nav me-auto">
+
+      <!-- Login -->
+      <li class="nav-item" *ngIf="!isLogin()">
+        <a class="nav-link" [routerLink]="['/login']">
+          {{ 'Links.Login' | translate }}
+        </a>
+      </li>
+
+      <!-- Logout -->
+      <li class="nav-item" *ngIf="isLogin()">
+        <a class="nav-link" (click)="logout()">
+          {{ 'Links.logout' | translate }}
+        </a>
+      </li>
+
+      <!-- USER -->
+      <li class="nav-item dropdown" *ngIf="isLogin()">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.User' | translate }}</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" (click)="forward()">{{ 'Links.MyProfile' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/changepassword']">{{ 'Links.ChangePassword' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/user']">{{ 'Links.AddUser' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/userlist']">{{ 'Links.UserList' | translate }}</a></li>
+        </ul>
+      </li>
+
+      <!-- ROLE -->
+      <li class="nav-item dropdown" *ngIf="isLogin()">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Navbar.Role' | translate }}</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/role']">{{ 'Links.AddRole' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/rolelist']">{{ 'Links.RoleList' | translate }}</a></li>
+        </ul>
+      </li>
+
+      <!-- COLLEGE -->
+      <li class="nav-item dropdown" *ngIf="isLogin()">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.College' | translate }}</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/college']">{{ 'Links.AddCollege' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/collegelist']">{{ 'Links.CollegeList' | translate }}</a></li>
+        </ul>
+      </li>
+
+      <!-- STUDENT -->
+      <li class="nav-item dropdown" *ngIf="isLogin()">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Student' | translate }}</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/student']">{{ 'Links.AddStudent' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/studentlist']">{{ 'Links.StudentList' | translate }}</a></li>
+        </ul>
+      </li>
+
+      <!-- MARKSHEET -->
+      <li class="nav-item dropdown" *ngIf="isLogin()">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Marksheet' | translate }}</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/marksheet']">{{ 'Links.AddMarksheet' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/marksheetlist']">{{ 'Links.MarksheetList' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/marksheetmeritlist']">{{ 'Links.MarksheetMeritList' | translate }}</a></li>
+        </ul>
+      </li>
+
+      <!-- COURSE -->
+      <li class="nav-item dropdown" *ngIf="isLogin()">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Course' | translate }}</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/course']">{{ 'Links.AddCourse' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/courselist']">{{ 'Links.CourseList' | translate }}</a></li>
+        </ul>
+      </li>
+
+      <!-- SUBJECT -->
+      <li class="nav-item dropdown" *ngIf="isLogin()">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Subject' | translate }}</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/subject']">{{ 'Links.AddSubject' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/subjectlist']">{{ 'Links.SubjectList' | translate }}</a></li>
+        </ul>
+      </li>
+
+      <!-- TIMETABLE -->
+      <li class="nav-item dropdown" *ngIf="isLogin()">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Timetable' | translate }}</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/timetable']">{{ 'Links.AddTimetable' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/timetablelist']">{{ 'Links.TimetableList' | translate }}</a></li>
+        </ul>
+      </li>
+
+      <!-- FACULTY -->
+      <li class="nav-item dropdown" *ngIf="isLogin()">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Faculty' | translate }}</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/faculty']">{{ 'Links.AddFaculty' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/facultylist']">{{ 'Links.FacultyList' | translate }}</a></li>
+        </ul>
+      </li>
+
+      <!-- AUDIT -->
+      <li class="nav-item dropdown" *ngIf="isLogin()">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Audit' | translate }}</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/audit']">{{ 'Links.Audit' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/auditlist']">{{ 'Links.AuditList' | translate }}</a></li>
+        </ul>
+      </li>
+
+      <!-- RESOLUTION -->
+      <li class="nav-item dropdown" *ngIf="isLogin()">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Resolution' | translate }}</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/resolution']">{{ 'Links.AddResolution' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/resolutionList']">{{ 'Links.ResolutionList' | translate }}</a></li>
+        </ul>
+      </li>
+
+      <!-- PRESCRIPTION -->
+      <li class="nav-item dropdown" *ngIf="isLogin()">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Prescription' | translate }}</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/prescription']">{{ 'Links.AddPrescription' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/prescriptionList']">{{ 'Links.PrescriptionList' | translate }}</a></li>
+        </ul>
+      </li>
+
+      <!-- QUOTA -->
+      <li class="nav-item dropdown" *ngIf="isLogin()">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Quota' | translate }}</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/quota']">{{ 'Links.AddQuota' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/quotaList']">{{ 'Links.QuotaList' | translate }}</a></li>
+        </ul>
+      </li>
+
+      <!-- DECRYPTION -->
+      <li class="nav-item dropdown" *ngIf="isLogin()">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Decryption' | translate }}</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/decryption']">{{ 'Links.AddDecryption' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/decryptionList']">{{ 'Links.DecryptionList' | translate }}</a></li>
+        </ul>
+      </li>
+
+      <!-- BLOCK-LIST -->
+      <li class="nav-item dropdown" *ngIf="isLogin()">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.BlockList' | translate }}</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/blockList']">{{ 'Links.AddBlockList' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/blockListList']">{{ 'Links.BlockListList' | translate }}</a></li>
+        </ul>
+      </li>
+
+      <!-- RULE -->
+      <li class="nav-item dropdown" *ngIf="isLogin()">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Rule' | translate }}</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/rule']">{{ 'Links.AddRule' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/ruleList']">{{ 'Links.RuleList' | translate }}</a></li>
+        </ul>
+      </li>
+
+      <!-- SUBSCRIPTION -->
+      <li class="nav-item dropdown" *ngIf="isLogin()">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Subscription' | translate }}</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/subscriptionUsage']">{{ 'Links.AddSubscription' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/subscriptionUsageList']">{{ 'Links.SubscriptionList' | translate }}</a></li>
+        </ul>
+      </li>
+
+      <!-- CACHE -->
+      <li class="nav-item dropdown" *ngIf="isLogin()">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Cache' | translate }}</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/cache']">{{ 'Links.AddCache' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/cachelist']">{{ 'Links.CacheList' | translate }}</a></li>
+        </ul>
+      </li>
+
+    </ul>
+
+    <!-- RIGHT SIDE -->
+    <div class="d-flex align-items-center">
+
+      <!-- Locale Select -->
+      <select #locale (change)="changeLocale(locale.value)" class="form-select me-3">
+        <option value="0">{{ 'LocaleSelect.Select' | translate }}</option>
+        <option value="en">{{ 'LocaleSelect.English' | translate }}</option>
+        <option value="hi">{{ 'LocaleSelect.Hindi' | translate }}</option>
+      </select>
+
+      <!-- Greeting for Logged In User -->
+      <span class="me-3 text-white d-flex align-items-center text-nowrap" *ngIf="isLogin()">
+        {{ 'Greetings.HiUser' | translate:{name: form.data.fname, role: form.data.role} }}
+      </span>
+
+      <!-- Greeting for Guest -->
+      <span class="me-3 text-white" *ngIf="!isLogin()">
+        {{ 'Greetings.HiGuest' | translate }}
+      </span>
+
+      <!-- Logo -->
+      <a routerLink="/dashboard" class="d-flex align-items-center">
+        <img src="/assets/image/customLogo.jpg" class="logo" style="height:40px;">
+      </a>
+
+    </div>
+
+  </div>
+</nav>

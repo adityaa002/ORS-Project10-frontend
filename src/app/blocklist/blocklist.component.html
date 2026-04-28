@@ -1,0 +1,94 @@
+<div class="role-bg d-flex justify-content-center align-items-center">
+
+  <div class="card shadow-lg p-4 role-card">
+
+    <!-- Header -->
+    <h3 class="text-center text-primary mb-3">
+      <span *ngIf="!form.data.id">Add Block</span>
+      <span *ngIf="form.data.id > 0">Update Block</span>
+    </h3>
+
+    <!-- Message -->
+    <div *ngIf="form.message"
+         class="alert text-center"
+         [ngClass]="form.error ? 'alert-danger' : 'alert-success'">
+      {{ form.message }}
+    </div>
+
+    <!-- Reason -->
+    <div class="mb-3">
+      <label class="form-label">
+        Reason <span class="text-danger">*</span>
+      </label>
+      <textarea class="form-control"
+                rows="3"
+                name="reason"
+                [(ngModel)]="form.data.reason"
+                placeholder="Enter reason">
+      </textarea>
+      <small class="text-danger" *ngIf="form.inputerror.reason">
+        {{form.inputerror.reason}}
+      </small>
+    </div>
+
+    <!-- Block Code -->
+    <div class="mb-3">
+      <label class="form-label">
+        Block Code <span class="text-danger">*</span>
+      </label>
+      <input type="text"
+             class="form-control form-control-lg"
+             name="blockCode"
+             [(ngModel)]="form.data.blockCode"
+             placeholder="Enter block code">
+      <small class="text-danger" *ngIf="form.inputerror.blockCode">
+        {{form.inputerror.blockCode}}
+      </small>
+    </div>
+
+    <!-- User Name -->
+    <div class="mb-3">
+      <label class="form-label">
+        User Name <span class="text-danger">*</span>
+      </label>
+      <input type="text"
+             class="form-control form-control-lg"
+             name="userName"
+             [(ngModel)]="form.data.userName"
+             placeholder="Enter user name">
+      <small class="text-danger" *ngIf="form.inputerror.userName">
+        {{form.inputerror.userName}}
+      </small>
+    </div>
+
+    <!-- Status -->
+    <div class="mb-3">
+      <label class="form-label">
+        Status <span class="text-danger">*</span>
+      </label>
+      <select class="form-control"
+              name="status"
+              [(ngModel)]="form.data.status">
+        <option value="undefined">Select</option>
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+      </select>
+      <small class="text-danger" *ngIf="form.inputerror.status">
+        {{form.inputerror.status}}
+      </small>
+    </div>
+
+    <!-- Buttons -->
+    <div class="text-center mt-4">
+      <button class="btn btn-success px-4 me-2" (click)="submit()">
+        Save
+      </button>
+
+      <button class="btn btn-warning px-4" (click)="reset()">
+        Reset
+      </button>
+    </div>
+
+  </div>
+
+</div>

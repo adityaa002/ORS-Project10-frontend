@@ -1,0 +1,179 @@
+{
+    "Login": "Login",
+    "Sign In": "Sign In",
+    "Sign Up": "Sign Up",
+    "Forget my password?": "Forget my password?",
+    "LoginId": "Login ID",
+    "Password": "Password",
+    "UserRegistration": "User Registration",
+    "FirstName": "First Name",
+    "LastName": "Last Name",
+    "DateOfBirth": "Date of Birth",
+    "Gender": "Gender",
+    "Mobile": "Mobile",
+    "Buttons": {
+        "SignUp": "Sign Up",
+        "Reset": "Reset"
+    },
+    "GenderOptions": {
+        "Select": "------------Select------------",
+        "Male": "Male",
+        "Female": "Female"
+    },
+    "Greetings": {
+        "HiUser": "Hi, {{name}} ( {{role}} )",
+        "HiGuest": "Hi, Guest"
+    },
+    "Links": {
+        "Dashboard": "Dashboard",
+        "Login": "Login",
+        "logout": "Logout",
+        "MyProfile": "My Profile",
+        "ChangePassword": "Change Password",
+        "User": "User",
+        "AddUser": "Add User",
+        "UserList": "User List",
+        "Role": "Role",
+        "AddRole": "Add Role",
+        "RoleList": "Role List",
+        "College": "College",
+        "AddCollege": "Add College",
+        "CollegeList": "College List",
+        "Student": "Student",
+        "AddStudent": "Add Student",
+        "StudentList": "Student List",
+        "Marksheet": "Marksheet",
+        "AddMarksheet": "Add Marksheet",
+        "MarksheetList": "Marksheet List",
+        "MarksheetMeritList": "Marksheet Merit List",
+        "Course": "Course",
+        "AddCourse": "Add Course",
+        "CourseList": "Course List",
+        "Subject": "Subject",
+        "AddSubject": "Add Subject",
+        "SubjectList": "Subject List",
+        "Timetable": "Timetable",
+        "AddTimetable": "Add Timetable",
+        "TimetableList": "Timetable List",
+        "Faculty": "Faculty",
+        "AddFaculty": "Add Faculty",
+        "FacultyList": "Faculty List",
+        "Audit": "Audit",
+        "AuditList": "Audit List",
+        "Resolution": "Resolution",
+        "AddResolution": "Add Resolution",
+        "ResolutionList": "Resolution List",
+        "Prescription": "Prescription",
+        "AddPrescription": "Add Prescription",
+        "PrescriptionList": "Prescription List",
+        "Quota": "Quota",
+        "AddQuota": "Add Quota",
+        "QuotaList": "Quota List",
+        "Decryption": "Decryption",
+        "AddDecryption": "Add Decryption",
+        "DecryptionList": "Decryption List",
+        "BlockList": "Block List",
+        "AddBlockList": "Add Block List",
+        "BlockListList": "Block List List",
+        "Rule": "Rule",
+        "AddRule": "Add Rule",
+        "RuleList": "Rule List",
+        "Subscription": "Subscription",
+        "AddSubscription": "Add Subscription",
+        "SubscriptionList": "Subscription List",
+        "Cache": "Cache",
+        "AddCache": "Add Cache",
+        "CacheList": "Cache List"
+    },
+    "Navbar": {
+        "Role": "Role"
+    },
+    "LocaleSelect": {
+        "Select": "-------Select-------",
+        "English": "English",
+        "Hindi": "Hindi"
+    },
+    "UserForm": {
+        "AddUser": "Add User",
+        "UpdateUser": "Update User",
+        "FirstName": "First Name",
+        "LastName": "Last Name",
+        "LoginId": "Login ID",
+        "Password": "Password",
+        "DateOfBirth": "Date of Birth",
+        "Gender": "Gender",
+        "image": "Upload Image",
+        "Role": "Role",
+        "Mobile": "Mobile",
+        "AlternateMobile": "Alternate Mobile",
+        "Status": "Status",
+        "Placeholders": {
+            "FirstName": "Enter First Name",
+            "LastName": "Enter Last Name",
+            "LoginId": "Enter Login ID",
+            "Password": "Enter Password",
+            "DateOfBirth": "Select Date of Birth",
+            "Mobile": "Enter Mobile No.",
+            "AlternateMobile": "Enter Alternate Mobile No."
+        },
+        "SelectOptions": {
+            "Select": "------------Select------------",
+            "Male": "Male",
+            "Female": "Female",
+            "Active": "Active",
+            "Inactive": "Inactive"
+        },
+        "Buttons": {
+            "Save": "Save",
+            "List": "List"
+        }
+    },
+    "CacheForm": {
+        "AddCache": "Add Cache",
+        "UpdateCache": "Update Cache",
+        "CacheCode": "Cache Code",
+        "KeyName": "Key Name",
+        "Value": "Value",
+        "Status": "Status",
+        "Placeholders": {
+            "CacheCode": "Enter Cache Code",
+            "KeyName": "Enter Key Name",
+            "Value": "Enter Value"
+        },
+        "StatusOptions": {
+            "Select": "-------Select-------",
+            "Active": "Active",
+            "Inactive": "Inactive"
+        },
+        "Buttons": {
+            "Save": "Save",
+            "Reset": "Reset"
+        }
+    },
+    "CacheList": {
+        "Title": "Cache List",
+        "SearchByKey": "Search by Key Name",
+        "SelectCacheCode": "Select Cache Code",
+        "Table": {
+            "SNo": "S.No",
+            "CacheCode": "Cache Code",
+            "KeyName": "Key Name",
+            "Value": "Value",
+            "Status": "Status",
+            "Edit": "Edit"
+        },
+        "Buttons": {
+            "Search": "Search",
+            "Reset": "Reset",
+            "Previous": "Previous",
+            "Next": "Next",
+            "New": "New",
+            "Delete": "Delete",
+            "Back": "Back"
+        },
+        "Status": {
+            "ACTIVE": "Active",
+            "INACTIVE": "Inactive"
+        }
+    }
+}

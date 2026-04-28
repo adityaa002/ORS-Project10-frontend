@@ -1,0 +1,170 @@
+<div class="container-fluid d-flex justify-content-center align-items-center py-5"
+     style="min-height: 100vh;
+            background-image: url('/assets/image/signUp.avif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;">
+
+  <!-- Dark overlay -->
+  <div style="position:absolute; inset:0; background:rgba(10,10,30,0.70); z-index:0;"></div>
+
+  <div class="card shadow-lg p-4 position-relative"
+       style="width:100%; max-width:480px; border-radius:16px; border:none;
+              background:rgba(20,20,50,0.88); backdrop-filter:blur(10px); z-index:1;">
+
+    <div class="text-center mb-3">
+      <span style="font-size:32px;">📝</span>
+      <h1 class="fw-bold mt-1" style="color:#a78bfa; font-size:1.7rem;">
+        {{ 'UserRegistration' | translate }}
+      </h1>
+    </div>
+
+    <!-- Success Alert -->
+    <div *ngIf="!form.error && form.message"
+         class="alert alert-success py-2 px-3 mb-3" role="alert">
+      ✅ {{ form.message }}
+    </div>
+
+    <!-- Error Alert -->
+    <div *ngIf="form.error && form.message"
+         class="alert alert-danger py-2 px-3 mb-3" role="alert">
+      ❌ {{ form.message }}
+    </div>
+
+    <table class="w-100">
+
+      <!-- First Name -->
+      <tr>
+        <th class="text-light py-2 pe-3" style="white-space:nowrap; font-size:13px;">
+          {{ 'FirstName' | translate }}<span class="text-danger">*</span>
+        </th>
+        <td class="py-2">
+          <input type="text" name="firstName" [(ngModel)]="form.data.firstName"
+                 placeholder="Enter First Name"
+                 class="form-control form-control-sm"
+                 style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); color:#fff;">
+          <small class="text-danger">{{form.inputerror.firstName}}</small>
+        </td>
+      </tr>
+
+      <!-- Last Name -->
+      <tr>
+        <th class="text-light py-2 pe-3" style="white-space:nowrap; font-size:13px;">
+          {{ 'LastName' | translate }}<span class="text-danger">*</span>
+        </th>
+        <td class="py-2">
+          <input type="text" name="lastName" [(ngModel)]="form.data.lastName"
+                 placeholder="Enter Last Name"
+                 class="form-control form-control-sm"
+                 style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); color:#fff;">
+          <small class="text-danger">{{form.inputerror.lastName}}</small>
+        </td>
+      </tr>
+
+      <!-- Login ID -->
+      <tr>
+        <th class="text-light py-2 pe-3" style="white-space:nowrap; font-size:13px;">
+          {{ 'LoginId' | translate }}<span class="text-danger">*</span>
+        </th>
+        <td class="py-2">
+          <input type="text" name="loginId" [(ngModel)]="form.data.loginId"
+                 placeholder="Enter Login ID"
+                 class="form-control form-control-sm"
+                 style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); color:#fff;">
+          <small class="text-danger">{{form.inputerror.loginId}}</small>
+        </td>
+      </tr>
+
+      <!-- Password -->
+      <tr>
+        <th class="text-light py-2 pe-3" style="white-space:nowrap; font-size:13px;">
+          {{ 'Password' | translate }}<span class="text-danger">*</span>
+        </th>
+        <td class="py-2">
+          <input type="password" name="password" [(ngModel)]="form.data.password"
+                 placeholder="Enter Password"
+                 class="form-control form-control-sm"
+                 style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); color:#fff;">
+          <small class="text-danger">{{form.inputerror.password}}</small>
+        </td>
+      </tr>
+
+      <!-- Date of Birth -->
+      <tr>
+        <th class="text-light py-2 pe-3" style="white-space:nowrap; font-size:13px;">
+          {{ 'DateOfBirth' | translate }}<span class="text-danger">*</span>
+        </th>
+        <td class="py-2">
+          <input type="date" name="dob" [(ngModel)]="form.data.dob"
+                 class="form-control form-control-sm"
+                 style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); color:#fff;">
+          <small class="text-danger">{{form.inputerror.dob}}</small>
+        </td>
+      </tr>
+
+      <!-- Gender -->
+      <tr>
+        <th class="text-light py-2 pe-3" style="white-space:nowrap; font-size:13px;">
+          {{ 'Gender' | translate }}<span class="text-danger">*</span>
+        </th>
+        <td class="py-2">
+          <select name="gender" [(ngModel)]="form.data.gender"
+                  class="form-select form-select-sm"
+                  style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); color:#fff;">
+            <option value="undefined" style="background:#1a1a2e;">{{ 'GenderOptions.Select' | translate }}</option>
+            <option value="Male"      style="background:#1a1a2e;">{{ 'GenderOptions.Male' | translate }}</option>
+            <option value="Female"    style="background:#1a1a2e;">{{ 'GenderOptions.Female' | translate }}</option>
+          </select>
+          <small class="text-danger">{{form.inputerror.gender}}</small>
+        </td>
+      </tr>
+
+      <!-- Profile Image -->
+      <tr>
+        <th class="text-light py-2 pe-3" style="white-space:nowrap; font-size:13px;">
+          {{ 'UserForm.image' | translate }}<span class="text-danger">*</span>
+        </th>
+        <td class="py-2">
+          <img [src]="'assets/image/defaultProfile.png'" height="70" width="70"
+               class="rounded-circle mb-2"
+               style="border: 2px solid rgba(167,139,250,0.5); object-fit:cover;">
+          <br>
+          <input type="file" (change)="onFileSelected($event)" accept="image/*"
+                 class="form-control form-control-sm"
+                 style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); color:#aaa;">
+        </td>
+      </tr>
+
+      <!-- Mobile -->
+      <tr>
+        <th class="text-light py-2 pe-3" style="white-space:nowrap; font-size:13px;">
+          {{ 'Mobile' | translate }}<span class="text-danger">*</span>
+        </th>
+        <td class="py-2">
+          <input type="text" name="phone" [(ngModel)]="form.data.phone"
+                 maxlength="10" placeholder="Enter Mobile No."
+                 class="form-control form-control-sm"
+                 style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); color:#fff;">
+          <small class="text-danger">{{form.inputerror.phone}}</small>
+        </td>
+      </tr>
+
+      <!-- Buttons -->
+      <tr>
+        <td></td>
+        <td class="pt-3 d-flex gap-2">
+          <button (click)="signUp()"
+                  class="btn btn-primary btn-sm w-50">
+            {{ 'Buttons.SignUp' | translate }}
+          </button>
+          <button (click)="reset()"
+                  class="btn btn-outline-light btn-sm w-50">
+            {{ 'Buttons.Reset' | translate }}
+          </button>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+</div>

@@ -1,0 +1,104 @@
+<div class="hm">
+  <div class="container-fluid mt-5">
+    <form>
+      <div class="row pt-3">
+
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4">
+          <div class="card input-group-addon">
+            <div class="card-body">
+
+              <!-- Header -->
+              <h3 class="text-center text-white mb-4">
+                <span *ngIf="!form.data.id">Add Decryption</span>
+                <span *ngIf="form.data.id > 0">Update Decryption</span>
+              </h3>
+
+              <!-- Message -->
+              <div *ngIf="form.message"
+                   class="alert"
+                   [ngClass]="form.error ? 'alert-danger' : 'alert-success'">
+                {{form.message}}
+              </div>
+
+              <!-- Key Used -->
+              <div class="mb-3 text-white" >
+                <label><b>Key Used *</b></label>
+                <input type="text" class="form-control"
+                       name="keyUsed"
+                       [(ngModel)]="form.data.keyUsed"
+                       placeholder="Enter Key Used">
+                <small class="text-danger" *ngIf="form.inputerror.keyUsed">
+                  {{form.inputerror.keyUsed}}
+                </small>
+              </div>
+
+              <!-- Decryption Code -->
+              <div class="mb-3 text-white">
+                <label><b>Decryption Code *</b></label>
+                <input type="text text-white" class="form-control"
+                       name="decryptionCode"
+                       [(ngModel)]="form.data.decryptionCode"
+                       placeholder="Enter Decryption Code">
+                <small class="text-danger" *ngIf="form.inputerror.decryptionCode">
+                  {{form.inputerror.decryptionCode}}
+                </small>
+              </div>
+
+              <!-- Algorithm -->
+              <div class="mb-3 text-white">
+                <label><b>Algorithm *</b></label>
+                <select class="form-control"
+                        name="algorithm"
+                        [(ngModel)]="form.data.algorithm">
+                  <option value="">Select Algorithm</option>
+                  <option value="AES">AES</option>
+                  <option value="RSA">RSA</option>
+                  <option value="DES">DES</option>
+                  <option value="SHA">SHA</option>
+                </select>
+                <small class="text-danger" *ngIf="form.inputerror.algorithm">
+                  {{form.inputerror.algorithm}}
+                </small>
+              </div>
+
+              <!-- Status -->
+              <div class="mb-3 text-white">
+                <label><b>Status *</b></label>
+                <select class="form-control"
+                        name="status"
+                        [(ngModel)]="form.data.status">
+                  <option value="">Select</option>
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                </select>
+                <small class="text-danger" *ngIf="form.inputerror.status">
+                  {{form.inputerror.status}}
+                </small>
+              </div>
+
+              <!-- Buttons -->
+              <div class="text-center mt-4">
+                <button type="button" class="btn btn-success me-2"
+                        (click)="submit()">Save</button>
+
+                <button type="button" class="btn btn-warning"
+                        *ngIf="!form.data.id"
+                        (click)="reset()">Reset</button>
+
+                <button type="button" class="btn btn-warning"
+                        *ngIf="form.data.id > 0"
+                        (click)="forward('/decryptionlist')">Back</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4"></div>
+
+      </div>
+    </form>
+  </div>
+</div>

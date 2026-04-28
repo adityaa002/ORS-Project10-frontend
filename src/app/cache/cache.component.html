@@ -1,0 +1,107 @@
+<div class="role-bg d-flex justify-content-center align-items-center">
+
+  <div class="card shadow-lg p-4 role-card">
+
+    <!-- Header -->
+    <h3 class="text-center text-primary mb-3">
+      <span *ngIf="!form.data.cacheId">
+        {{ 'CacheForm.AddCache' | translate }}
+      </span>
+      <span *ngIf="form.data.cacheId > 0">
+        {{ 'CacheForm.UpdateCache' | translate }}
+      </span>
+    </h3>
+
+    <!-- Message -->
+    <div *ngIf="form.message"
+         class="alert text-center"
+         [ngClass]="form.error ? 'alert-danger' : 'alert-success'">
+      {{ form.message }}
+    </div>
+
+    <!-- Cache Code -->
+    <div class="mb-3">
+      <label class="form-label">
+        {{ 'CacheForm.CacheCode' | translate }}
+        <span class="text-danger">*</span>
+      </label>
+      <input type="text"
+             class="form-control form-control-lg"
+             name="cacheCode"
+             [(ngModel)]="form.data.cacheCode"
+             [placeholder]="'CacheForm.Placeholders.CacheCode' | translate">
+      <small class="text-danger" *ngIf="form.inputerror.cacheCode">
+        {{form.inputerror.cacheCode}}
+      </small>
+    </div>
+
+    <!-- Key Name -->
+    <div class="mb-3">
+      <label class="form-label">
+        {{ 'CacheForm.KeyName' | translate }}
+        <span class="text-danger">*</span>
+      </label>
+      <input type="text"
+             class="form-control form-control-lg"
+             name="keyName"
+             [(ngModel)]="form.data.keyName"
+             [placeholder]="'CacheForm.Placeholders.KeyName' | translate">
+      <small class="text-danger" *ngIf="form.inputerror.keyName">
+        {{form.inputerror.keyName}}
+      </small>
+    </div>
+
+    <!-- Value -->
+    <div class="mb-3">
+      <label class="form-label">
+        {{ 'CacheForm.Value' | translate }}
+        <span class="text-danger">*</span>
+      </label>
+      <input type="text"
+             class="form-control form-control-lg"
+             name="value"
+             [(ngModel)]="form.data.value"
+             [placeholder]="'CacheForm.Placeholders.Value' | translate">
+      <small class="text-danger" *ngIf="form.inputerror.value">
+        {{form.inputerror.value}}
+      </small>
+    </div>
+
+    <!-- Status -->
+    <div class="mb-3">
+      <label class="form-label">
+        {{ 'CacheForm.Status' | translate }}
+        <span class="text-danger">*</span>
+      </label>
+      <select class="form-control"
+              name="status"
+              [(ngModel)]="form.data.status">
+        <option value="">
+          {{ 'CacheForm.StatusOptions.Select' | translate }}
+        </option>
+        <option value="ACTIVE">
+          {{ 'CacheForm.StatusOptions.Active' | translate }}
+        </option>
+        <option value="INACTIVE">
+          {{ 'CacheForm.StatusOptions.Inactive' | translate }}
+        </option>
+      </select>
+      <small class="text-danger" *ngIf="form.inputerror.status">
+        {{form.inputerror.status}}
+      </small>
+    </div>
+
+    <!-- Buttons -->
+    <div class="text-center mt-4">
+      <button class="btn btn-success px-4 me-2" (click)="submit()">
+        {{ 'CacheForm.Buttons.Save' | translate }}
+      </button>
+
+      <button class="btn btn-warning px-4" (click)="reset()">
+        {{ 'CacheForm.Buttons.Reset' | translate }}
+      </button>
+    </div>
+
+  </div>
+
+</div>

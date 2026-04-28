@@ -1,0 +1,129 @@
+<div class="hm">
+  <div class="container-fluid mt-5">
+    <form>
+      <div class="row pt-3">
+
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4">
+          <div class="card input-group-addon">
+            <div class="card-body">
+
+              <!-- Header -->
+              <h3 class="text-center text-primary mb-4">
+                <span *ngIf="!form.data.id">Add Quota</span>
+                <span *ngIf="form.data.id > 0">Update Quota</span>
+              </h3>
+
+              <!-- Message -->
+              <div *ngIf="form.message"
+                   class="alert"
+                   [ngClass]="form.error ? 'alert-danger' : 'alert-success'">
+                {{form.message}}
+              </div>
+
+              <!-- Quota Code -->
+              <div class="mb-3">
+                <label><b>Quota Code *</b></label>
+                <input type="text" class="form-control"
+                       name="quotaCode"
+                       [(ngModel)]="form.data.quotaCode"
+                       placeholder="Enter Quota Code">
+                <small class="text-danger" *ngIf="form.inputerror.quotaCode">
+                  {{form.inputerror.quotaCode}}
+                </small>
+              </div>
+
+              <!-- User Name -->
+              <div class="mb-3">
+                <label><b>User Name *</b></label>
+                <input type="text" class="form-control"
+                       name="userName"
+                       [(ngModel)]="form.data.userName"
+                       placeholder="Enter User Name">
+                <small class="text-danger" *ngIf="form.inputerror.userName">
+                  {{form.inputerror.userName}}
+                </small>
+              </div>
+
+              <!-- Limit Value -->
+              <div class="mb-3">
+                <label><b>Limit Value *</b></label>
+                <input type="number" class="form-control"
+                       name="limitValue"
+                       [(ngModel)]="form.data.limitValue"
+                       placeholder="Enter Limit Value">
+                <small class="text-danger" *ngIf="form.inputerror.limitValue">
+                  {{form.inputerror.limitValue}}
+                </small>
+              </div>
+
+              <!-- Status -->
+              <div class="mb-3">
+                <label><b>Status *</b></label>
+                <select class="form-control"
+                        name="status"
+                        [(ngModel)]="form.data.status">
+                  <option value="">Select</option>
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                </select>
+                <small class="text-danger" *ngIf="form.inputerror.status">
+                  {{form.inputerror.status}}
+                </small>
+              </div>
+
+              <!-- Buttons -->
+              <div class="text-center mt-4">
+                <button type="button" class="btn btn-success me-2"
+                        (click)="submit()">Save</button>
+
+                <button type="button" class="btn btn-warning"
+                        *ngIf="!form.data.id"
+                        (click)="reset()">Reset</button>
+
+                <button type="button" class="btn btn-warning"
+                        *ngIf="form.data.id > 0"
+                        (click)="forward('/quotas')">Back</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4"></div>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+<style>
+    i.css {
+        border: 2px solid #8080803b;
+        padding-left: 10px;
+        padding-bottom: 11px;
+        background-color: #565651;
+    }
+
+    .input-group-addon {
+        box-shadow: 9px 8px 7px #01b897;
+    }
+
+    .hm {
+        background-image: url('assets/image/addUser.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        padding-top: 75px;
+        min-height: 100vh;
+    }
+
+    .grey-text {
+        color: #878787;
+    }
+
+    .default-text {
+        font-weight: 600;
+    }
+</style>

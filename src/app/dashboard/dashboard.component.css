@@ -1,0 +1,31 @@
+.bg {
+    background-image: url('/assets/image/dashboard.jpg'); /* apni image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Optional overlay for readability */
+  .body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(64, 64, 64, 0.659);
+  }
+
+  .body > div {
+    position: relative;
+    z-index: 1;
+    color: white;
+  }
+
+  .angular-logo {
+    width: 120px;
+    margin-top: 20px;
+  }

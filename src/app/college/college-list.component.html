@@ -1,0 +1,114 @@
+<div class="list-bg container-fluid mt-5 pt-4">
+
+  <h2 class="text-center text-primary mb-3">College List</h2>
+
+  <!-- Messages -->
+  <div class="text-center mb-3">
+    <div *ngIf="form.message"
+         class="alert d-inline-block"
+         [ngClass]="form.error ? 'alert-danger' : 'alert-success'">
+      {{ form.message }}
+    </div>
+  </div>
+
+  <div *ngIf="form.list.length > 0">
+
+    <!-- Search Section -->
+<div class="row justify-content-center mb-3">
+
+  
+
+   
+
+   
+
+</div>
+
+    <!-- Table -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover text-center align-middle shadow">
+
+        <thead class="table-secondary">
+          <tr>
+            <th>
+              <input type="checkbox" [(ngModel)]="isMasterSel"
+                     (change)="checkUncheckAll($event)" />
+            </th>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>State</th>
+            <th>City</th>
+            <th>Phone</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let m of form.list; let i = index">
+            <td>
+              <input type="checkbox"
+                     (change)="checklistUpdate()"
+                     [id]="m.id">
+            </td>
+            <td>{{(form.pageNo*5)+i+1}}</td>
+            <td>{{m.name}}</td>
+            <td>{{m.address}}</td>
+            <td>{{m.state}}</td>
+            <td>{{m.city}}</td>
+            <td>{{m.phoneNo}}</td>
+            <td>
+              <button class="btn btn-info btn-sm text-white"
+                      (click)="forward('/college/' + m.id)">
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+
+    <!-- Buttons -->
+    <div class="row mt-3">
+
+      <div class="col-md-3">
+        <button class="btn btn-warning btn-sm"
+                (click)="previous()"
+                [disabled]="form.pageNo == 0">
+          Previous
+        </button>
+      </div>
+
+      <div class="col-md-3 text-center">
+        <button class="btn btn-primary btn-sm"
+                (click)="forward('/college')">
+          New
+        </button>
+      </div>
+
+      <div class="col-md-3 text-center">
+        <button class="btn btn-danger btn-sm"
+                (click)="deleteMany()">
+          Delete
+        </button>
+      </div>
+
+      <div class="col-md-3 text-end">
+        <button class="btn btn-warning btn-sm"
+                (click)="next()"
+                [disabled]="form.nextListSize == 0">
+          Next
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- No Data -->
+  <div *ngIf="form.list.length == 0" class="text-center mt-4">
+    <button class="btn btn-primary btn-sm" (click)="reset()">Back</button>
+  </div>
+
+</div>

@@ -1,0 +1,96 @@
+<div class="role-bg d-flex justify-content-center align-items-center">
+
+  <div class="card shadow-lg p-4 role-card">
+
+    <!-- Header -->
+    <h3 class="text-center text-primary mb-3">
+      <span *ngIf="!form.data.id">Add Rule</span>
+      <span *ngIf="form.data.id > 0">Update Rule</span>
+    </h3>
+
+    <!-- Message -->
+    <div *ngIf="form.message"
+         class="alert text-center"
+         [ngClass]="form.error ? 'alert-danger' : 'alert-success'">
+      {{ form.message }}
+    </div>
+
+    <!-- Rule Code -->
+    <div class="mb-3">
+      <label class="form-label">
+        Rule Code <span class="text-danger">*</span>
+      </label>
+      <input type="text"
+             class="form-control form-control-lg"
+             name="ruleCode"
+             [(ngModel)]="form.data.ruleCode"
+             placeholder="Enter Rule Code">
+      <small class="text-danger" *ngIf="form.inputerror.ruleCode">
+        {{form.inputerror.ruleCode}}
+      </small>
+    </div>
+
+    <!-- Trigger Type -->
+    <div class="mb-3">
+      <label class="form-label">
+        Trigger Type <span class="text-danger">*</span>
+      </label>
+      <select class="form-control"
+              name="triggerType"
+              [(ngModel)]="form.data.triggerType">
+        <option value="">Select Trigger Type</option>
+        <option value="ON_CREATE">ON_CREATE</option>
+        <option value="ON_UPDATE">ON_UPDATE</option>
+        <option value="SCHEDULED">SCHEDULED</option>
+      </select>
+      <small class="text-danger" *ngIf="form.inputerror.triggerType">
+        {{form.inputerror.triggerType}}
+      </small>
+    </div>
+
+    <!-- Event -->
+    <div class="mb-3">
+      <label class="form-label">
+        Event <span class="text-danger">*</span>
+      </label>
+      <input type="text"
+             class="form-control"
+             name="event"
+             [(ngModel)]="form.data.event"
+             placeholder="Enter Event (e.g. USER_REGISTRATION)">
+      <small class="text-danger" *ngIf="form.inputerror.event">
+        {{form.inputerror.event}}
+      </small>
+    </div>
+
+    <!-- Status -->
+    <div class="mb-3">
+      <label class="form-label">
+        Status <span class="text-danger">*</span>
+      </label>
+      <select class="form-control"
+              name="status"
+              [(ngModel)]="form.data.status">
+        <option value="">Select Status</option>
+        <option value="ACTIVE">ACTIVE</option>
+        <option value="INACTIVE">INACTIVE</option>
+      </select>
+      <small class="text-danger" *ngIf="form.inputerror.status">
+        {{form.inputerror.status}}
+      </small>
+    </div>
+
+    <!-- Buttons -->
+    <div class="text-center mt-4">
+      <button class="btn btn-success px-4 me-2" (click)="submit()">
+        Save
+      </button>
+
+      <button class="btn btn-warning px-4" (click)="reset()">
+        Reset
+      </button>
+    </div>
+
+  </div>
+
+</div>

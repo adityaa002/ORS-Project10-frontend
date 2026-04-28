@@ -1,0 +1,24 @@
+.role-list-bg {
+  min-height: calc(100vh - 30px);
+  margin-top: 1px;
+  background: url('/assets/image/userList.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 20px;
+}
+
+/* overlay */
+.role-list-bg::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+   z-index: 0;
+}
+
+/* content above overlay */
+.role-list-bg > * {
+  position: relative;
+  z-index: 1;
+}

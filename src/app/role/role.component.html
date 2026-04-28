@@ -1,0 +1,62 @@
+<div class="role-bg d-flex justify-content-center align-items-center">
+
+  <div class="card shadow-lg p-4 role-card">
+
+    <!-- Header -->
+    <h3 class="text-center text-primary mb-3">
+      <span *ngIf="!form.data.id">Add Role</span>
+      <span *ngIf="form.data.id > 0">Update Role</span>
+    </h3>
+
+    <!-- Message -->
+    <div *ngIf="form.message"
+         class="alert text-center"
+         [ngClass]="form.error ? 'alert-danger' : 'alert-success'">
+      {{ form.message }}
+    </div>
+
+    <!-- Name -->
+    <div class="mb-3">
+      <label class="form-label">
+        Name <span class="text-danger">*</span>
+      </label>
+      <input type="text"
+             class="form-control form-control-lg"
+             name="name"
+             [(ngModel)]="form.data.name"
+             placeholder="Enter Role Name">
+      <small class="text-danger" *ngIf="form.inputerror.name">
+        {{form.inputerror.name}}
+      </small>
+    </div>
+
+    <!-- Description -->
+    <div class="mb-3">
+      <label class="form-label">
+        Description <span class="text-danger">*</span>
+      </label>
+      <textarea class="form-control"
+                rows="3"
+                name="description"
+                [(ngModel)]="form.data.description"
+                placeholder="Enter short description">
+      </textarea>
+      <small class="text-danger" *ngIf="form.inputerror.description">
+        {{form.inputerror.description}}
+      </small>
+    </div>
+
+    <!-- Buttons -->
+    <div class="text-center mt-4">
+      <button class="btn btn-success px-4 me-2" (click)="submit()">
+        Save
+      </button>
+
+      <button class="btn btn-warning px-4" (click)="reset()">
+        Reset
+      </button>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,96 @@
+ <div class="p4">
+  <div class="row log1 justify-content-center">
+
+    <div class="col-12 login-card-col">
+      <div class="card grad login-card">
+        <div class="card-body p-3">
+
+          <h3 class="text-center text-dark mb-3">
+            <b>{{'Login' | translate}}</b>
+          </h3>
+
+          <!-- Success Alert -->
+          <div *ngIf="!form.error && form.message"
+               class="alert alert-success alert-dismissible mb-2">
+            <button type="button" class="btn-close"
+                    (click)="form.message=''"></button>
+            {{ form.message }}
+          </div>
+
+          <!-- Error Alert -->
+          <div *ngIf="form.error && form.message"
+               class="alert alert-danger alert-dismissible mb-2">
+            <button type="button" class="btn-close"
+                    (click)="form.message=''"></button>
+            {{ form.message }}
+          </div>
+
+          <!-- Email -->
+          <div class="mb-1">
+            <span><b>{{'LoginId' | translate}}</b>
+              <span style="color:red;">*</span>
+            </span>
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-text">
+              <i class="fa fa-envelope" style="font-size:1rem;"></i>
+            </div>
+            <input type="text"
+                   class="form-control"
+                   name="loginId"
+                   [(ngModel)]="form.data.loginId"
+                   placeholder="Enter email">
+          </div>
+          <small class="text-danger mb-2 d-block">
+            {{ form.inputerror.loginId }}
+          </small>
+
+          <!-- Password -->
+          <div class="mb-1">
+            <span><b>{{'Password' | translate}}</b>
+              <span style="color:red;">*</span>
+            </span>
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-text">
+              <i class="fa fa-lock" style="font-size:1rem;"></i>
+            </div>
+            <input type="password"
+                   class="form-control"
+                   name="password"
+                   [(ngModel)]="form.data.password"
+                   placeholder="Enter password">
+          </div>
+          <small class="text-danger mb-3 d-block">
+            {{ form.inputerror.password }}
+          </small>
+
+          <!-- Buttons -->
+          <div class="text-center mb-2">
+            <button class="btn btn-success"
+                    style="font-size:16px;"
+                    (click)="signIn()">
+              {{'Sign In' | translate}}
+            </button>
+            &nbsp;
+            <button class="btn btn-primary"
+                    style="font-size:16px;"
+                    (click)="signUp()">
+              {{'Sign Up' | translate}}
+            </button>
+          </div>
+
+          <!-- Forgot Password -->
+          <div class="text-center">
+            <a [routerLink]="['/forgotpassword']"
+               style="color:black; font-size:14px;">
+              <b><u>{{'Forget my password?' | translate}}</u></b>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

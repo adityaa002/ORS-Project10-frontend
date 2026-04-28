@@ -1,0 +1,146 @@
+<div class="role-list-bg container-fluid mt-5 pt-4">
+
+  <h2 class="text-center text-primary mb-3">
+    {{ 'CacheList.Title' | translate }}
+  </h2>
+
+  <!-- Messages -->
+  <div class="text-center mb-3">
+    <div *ngIf="form.message"
+         class="alert d-inline-block"
+         [ngClass]="form.error ? 'alert-danger' : 'alert-success'">
+      {{ form.message }}
+    </div>
+  </div>
+
+  <div *ngIf="form.list.length > 0">
+
+    <!-- Search -->
+    <div class="row justify-content-center mb-3">
+
+      <div class="col-md-3">
+        <input type="text"
+               class="form-control form-control-sm"
+               [(ngModel)]="form.searchParams.keyName"
+               [placeholder]="'CacheList.SearchByKey' | translate">
+      </div>
+
+      <div class="col-md-3">
+        <select class="form-control form-control-sm"
+                [(ngModel)]="form.searchParams.cacheCode">
+          <option value="">
+            {{ 'CacheList.SelectCacheCode' | translate }}
+          </option>
+          <option *ngFor="let obj of form.preload.cacheList" [value]="obj.key">
+            {{obj.value}}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-md-3 text-center">
+        <button class="btn btn-primary btn-sm me-2" (click)="search()">
+          {{ 'CacheList.Buttons.Search' | translate }}
+        </button>
+
+        <button class="btn btn-dark btn-sm" (click)="reset()">
+          {{ 'CacheList.Buttons.Reset' | translate }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover text-center align-middle">
+
+        <thead class="table-secondary">
+          <tr>
+            <th>
+              <input type="checkbox" [(ngModel)]="isMasterSel"
+                     (change)="checkUncheckAll($event)" />
+            </th>
+            <th>{{ 'CacheList.Table.SNo' | translate }}</th>
+            <th>{{ 'CacheList.Table.CacheCode' | translate }}</th>
+            <th>{{ 'CacheList.Table.KeyName' | translate }}</th>
+            <th>{{ 'CacheList.Table.Value' | translate }}</th>
+            <th>{{ 'CacheList.Table.Status' | translate }}</th>
+            <th>{{ 'CacheList.Table.Edit' | translate }}</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let m of form.list; let i = index">
+            <td>
+              <input type="checkbox"
+                     #checkboxes
+                     (change)="checklistUpdate()"
+                     [id]="m.cacheId">
+            </td>
+
+            <td>{{(form.pageNo*5)+i+1}}</td>
+            <td>{{m.cacheCode}}</td>
+            <td>{{m.keyName}}</td>
+            <td>{{m.value}}</td>
+
+            <td>
+              <span [ngClass]="m.status === 'ACTIVE' ? 'text-success' : 'text-danger'">
+                {{ ('CacheList.Status.' + m.status) | translate }}
+              </span>
+            </td>
+
+            <td>
+              <button class="btn btn-info btn-sm text-white"
+                      (click)="forward('/cache/' + m.cacheId)">
+                {{ 'CacheList.Table.Edit' | translate }}
+              </button>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+
+    <!-- Buttons -->
+    <div class="row mt-3">
+
+      <div class="col-md-3">
+        <button class="btn btn-warning btn-sm"
+                (click)="previous()"
+                [disabled]="form.pageNo == 0">
+          {{ 'CacheList.Buttons.Previous' | translate }}
+        </button>
+      </div>
+
+      <div class="col-md-3 text-center">
+        <button class="btn btn-primary btn-sm"
+                (click)="forward('/cache')">
+          {{ 'CacheList.Buttons.New' | translate }}
+        </button>
+      </div>
+
+      <div class="col-md-3 text-center">
+        <button class="btn btn-danger btn-sm"
+                (click)="deleteMany()">
+          {{ 'CacheList.Buttons.Delete' | translate }}
+        </button>
+      </div>
+
+      <div class="col-md-3 text-end">
+        <button class="btn btn-warning btn-sm"
+                (click)="next()"
+                [disabled]="form.nextListSize == 0">
+          {{ 'CacheList.Buttons.Next' | translate }}
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- No Data -->
+  <div *ngIf="form.list.length == 0" class="text-center mt-4">
+    <button class="btn btn-primary btn-sm" (click)="reset()">
+      {{ 'CacheList.Buttons.Back' | translate }}
+    </button>
+  </div>
+
+</div>

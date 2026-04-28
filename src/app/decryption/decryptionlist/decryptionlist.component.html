@@ -1,0 +1,145 @@
+<div class="container-fluid mt-5 pt-3"
+     style="background: url('assets/image/userList.jpg') center/cover no-repeat; min-height:120vh;">
+
+    <h1 class="text-center text-primary mb-3">Decryption List</h1>
+
+    <!-- Messages -->
+    <div class="text-center mb-3">
+
+        <div *ngIf="!form.error && form.message" 
+             class="alert alert-success alert-dismissible fade show d-inline-block">
+            {{ form.message }}
+            <button type="button" class="btn-close" (click)="form.message=''"></button>
+        </div>
+
+        <div *ngIf="form.error && form.message" 
+             class="alert alert-danger alert-dismissible fade show d-inline-block">
+            {{ form.message }}
+            <button type="button" class="btn-close" (click)="form.message=''"></button>
+        </div>
+
+    </div>
+
+    <div *ngIf="form.list.length > 0">
+
+        <!-- 🔍 Search Section -->
+        <div class="row justify-content-center mb-3">
+
+            <div class="col-md-2">
+                <input type="text" class="form-control form-control-sm"
+                    [(ngModel)]="form.searchParams.keyUsed"
+                    placeholder="Key Used">
+            </div>
+
+            <div class="col-md-2">
+                <input type="text" class="form-control form-control-sm"
+                    [(ngModel)]="form.searchParams.decryptionCode"
+                    placeholder="Decryption Code">
+            </div>
+
+            <div class="col-md-2">
+                <select class="form-control form-control-sm"
+                    [(ngModel)]="form.searchParams.algorithm">
+                    <option value="">Algorithm</option>
+                    <option value="AES">AES</option>
+                    <option value="RSA">RSA</option>
+                    <option value="DES">DES</option>
+                    <option value="SHA">SHA</option>
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <select class="form-control form-control-sm"
+                    [(ngModel)]="form.searchParams.status">
+                    <option value="">Status</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+            </div>
+
+            <div class="col-md-3 text-center">
+                <button class="btn btn-primary btn-sm me-2" (click)="search()">Search</button>
+                <button class="btn btn-dark btn-sm" (click)="reset()">Reset</button>
+            </div>
+
+        </div>
+
+        <!-- 📊 Table -->
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover text-center align-middle">
+                <thead class="table-secondary">
+                    <tr>
+                        <th>
+                            <input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)" />
+                        </th>
+                        <th>S.No</th>
+                        <th>Key Used</th>
+                        <th>Decryption Code</th>
+                        <th>Algorithm</th>
+                        <th>Status</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let m of form.list; let i = index">
+                        <td>
+<input type="checkbox"
+             #checkboxes
+             (change)="checklistUpdate()"
+             [id]="m.id">                        </td>
+                        <td>{{(form.pageNo*5)+i+1}}</td>
+                        <td>{{m.keyUsed}}</td>
+                        <td>{{m.decryptionCode}}</td>
+                        <td>{{m.algorithm}}</td>
+                        <td>{{m.status}}</td>
+                        <td>
+                            <a (click)="forward('/decryption/' + m.id)"
+                               class="btn btn-info btn-sm text-white">Edit</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Buttons -->
+        <div class="row mt-3">
+
+            <div class="col-md-3">
+                <button class="btn btn-warning btn-sm"
+                    (click)="previous()" [disabled]="form.pageNo == 0">
+                    Previous
+                </button>
+            </div>
+
+            <div class="col-md-3 text-center">
+                <button class="btn btn-primary btn-sm"
+                    (click)="forward('/decryption')">
+                    New
+                </button>
+            </div>
+
+            <div class="col-md-3 text-center">
+                <button class="btn btn-danger btn-sm"
+                    (click)="deleteMany()">
+                    Delete
+                </button>
+            </div>
+
+            <div class="col-md-3 text-end">
+                <button class="btn btn-warning btn-sm"
+                    (click)="next()" [disabled]="form.nextListSize == 0">
+                    Next
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- No Data -->
+    <div *ngIf="form.list.length == 0" class="text-center mt-4">
+        <button class="btn btn-primary btn-sm" (click)="reset()">Back</button>
+    </div>
+
+</div>

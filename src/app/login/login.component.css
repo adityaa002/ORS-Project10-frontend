@@ -1,0 +1,28 @@
+.p4 {
+  background-image: url('../../assets/image/loginBg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+  padding-top: 75px;
+}
+
+.log1 {
+  padding-top: 5%;
+}
+
+.grad {
+  background-image: linear-gradient(to bottom right, rgb(0, 133, 88), rgb(60, 211, 208));
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+/* ✅ Card size control — change max-width to your liking */
+.login-card-col {
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.login-card {
+  box-shadow: 9px 8px 7px #001a33;
+}

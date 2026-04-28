@@ -1,0 +1,26 @@
+.list-bg {
+  min-height: calc(100vh - 10px);
+  margin-top: 30px;
+  background: url('/assets/image/marksheetMeritList.jpg') no-repeat center center;
+   background-size: cover;
+  position: relative;
+  padding: 0px;
+}
+
+/* overlay */
+.list-bg::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(149, 146, 146, 0.5);
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* content above overlay */
+.list-bg > * {
+  position: relative;
+  z-index: 1;
+}

@@ -1,0 +1,18 @@
+.form-bg {
+  min-height: calc(100vh - 60px);
+  margin-top: 20px;
+  background: url('/assets/image/marksheet.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+}
+
+ 
+
+/* card */
+.form-card {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+  position: relative;
+  z-index: 1;
+ }
