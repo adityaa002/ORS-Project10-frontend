@@ -1,6 +1,6 @@
 .form-bg {
-  min-height: calc(100vh - 70px);
-  margin-top: 20px;
+  min-height: calc(100vh - 30px);
+  margin-top: 10px;
   background: url('/assets/image/addStudent.jpg') no-repeat center center;
   background-size: cover;
   position: relative;

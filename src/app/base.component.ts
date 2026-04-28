@@ -52,7 +52,7 @@ export class BaseCtl implements OnInit {
     }
 
     ngOnInit(): void {
-         
+
         this.preload();
         if (this.form.data.id && this.form.data.id > 0) {
             this.display();
@@ -101,8 +101,8 @@ export class BaseCtl implements OnInit {
             formData,
             function (res: any) {
                 console.log("Upload response:", res);
-             }
-            
+            }
+
         );
     }
 
@@ -112,8 +112,10 @@ export class BaseCtl implements OnInit {
             _self.form.message = '';
             _self.form.inputerror = {};
             if (res.success) {
-                 _self.form.message = res.result.message;
+                _self.form.message = res.result.message;
                 _self.form.data.id = res.result.data;
+                _self.form.error = false;
+
                 _self.uploadPic();
             } else {
                 _self.form.error = true;

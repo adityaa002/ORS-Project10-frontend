@@ -27,7 +27,7 @@
 
       <div class="col-md-3">
         <select class="form-control form-control-sm"
-                [(ngModel)]="form.searchParams.cacheCode">
+                [(ngModel)]="form.searchParams.id">
           <option value="">
             {{ 'CacheList.SelectCacheCode' | translate }}
           </option>
@@ -73,7 +73,7 @@
               <input type="checkbox"
                      #checkboxes
                      (change)="checklistUpdate()"
-                     [id]="m.cacheId">
+                     [id]="m.id">
             </td>
 
             <td>{{(form.pageNo*5)+i+1}}</td>
@@ -89,7 +89,7 @@
 
             <td>
               <button class="btn btn-info btn-sm text-white"
-                      (click)="forward('/cache/' + m.cacheId)">
+                      (click)="forward('/cache/' + m.id)">
                 {{ 'CacheList.Table.Edit' | translate }}
               </button>
             </td>

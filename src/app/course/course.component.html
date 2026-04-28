@@ -1,57 +1,88 @@
- <div align="center">
-    <h1 *ngIf="!form.data.id" align="center" style="margin-bottom: 5px; color: navy">Add Course</h1>
-    <h1 *ngIf="form.data.id>0" align="center" style="margin-bottom: 5px; color: navy">Update Course</h1>
+<div class="role-bg d-flex justify-content-center align-items-center">
 
-    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
-        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
-        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
+  <div class="card shadow-lg p-4 role-card">
+
+    <!-- Header -->
+    <h3 class="text-center text-primary mb-3">
+      <span *ngIf="!form.data.id">Add Course</span>
+      <span *ngIf="form.data.id > 0">Update Course</span>
+    </h3>
+
+    <!-- Message -->
+    <div *ngIf="form.message"
+         class="alert text-center alert-dismissible fade show"
+         [ngClass]="form.error ? 'alert-danger' : 'alert-success'">
+
+      {{ form.message }}
+      <button type="button" class="btn-close" (click)="form.message=''"></button>
     </div>
 
-    <table>
-        <tr>
-            <th align="left">Name<span style="color: red">*</span></th>
-            <td align="center"><input type="text" name="name" [(ngModel)]="form.data.name" placeholder="Enter Course Name"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.name}}</td>
-        </tr>
+    <!-- Name -->
+    <div class="mb-3">
+      <label class="form-label">
+        Name <span class="text-danger">*</span>
+      </label>
+      <input type="text"
+             class="form-control form-control-lg"
+             name="name"
+             [(ngModel)]="form.data.name"
+             placeholder="Enter Course Name">
+      <small class="text-danger" *ngIf="form.inputerror.name">
+        {{form.inputerror.name}}
+      </small>
+    </div>
 
-        <tr>
-            <th align="left">Duration<span style="color: red">*</span></th>
-            <td>
-                <select name="duration" [(ngModel)]="form.data.duration" style="width: 170px;">
-                    <option value="undefined">------------Select------------</option>
-                    <option [value]="1">1 Year</option>
-                    <option [value]="2">2 Year</option>
-                    <option [value]="3">3 Year</option>
-                    <option [value]="4">4 Year</option>
-                    <option [value]="5">5 Year</option>
-                </select>
-            </td>
-            <td style="position: fixed; color: red;">{{form.inputerror.duration}}</td>
-        </tr>
+    <!-- Duration -->
+    <div class="mb-3">
+      <label class="form-label">
+        Duration <span class="text-danger">*</span>
+      </label>
+      <select class="form-select"
+              name="duration"
+              [(ngModel)]="form.data.duration">
+        <option value="">Select Duration</option>
+        <option [value]="1">1 Year</option>
+        <option [value]="2">2 Year</option>
+        <option [value]="3">3 Year</option>
+        <option [value]="4">4 Year</option>
+        <option [value]="5">5 Year</option>
+      </select>
+      <small class="text-danger" *ngIf="form.inputerror.duration">
+        {{form.inputerror.duration}}
+      </small>
+    </div>
 
-        <tr>
-            <th align="left">Description<span style="color: red">*</span></th>
-            <td align="center">
-                <textarea 
-                    style="width: 165px; resize: none;" 
-                    name="description" 
-                    [(ngModel)]="form.data.description"
-                    rows="3" 
-                    placeholder="Enter Short description">
-                </textarea>
-            </td>
-            <td style="position: fixed; color: red;">{{form.inputerror.description}}</td>
-        </tr>
+    <!-- Description -->
+    <div class="mb-3">
+      <label class="form-label">
+        Description <span class="text-danger">*</span>
+      </label>
+      <textarea class="form-control"
+                rows="3"
+                name="description"
+                [(ngModel)]="form.data.description"
+                placeholder="Enter short description">
+      </textarea>
+      <small class="text-danger" *ngIf="form.inputerror.description">
+        {{form.inputerror.description}}
+      </small>
+    </div>
 
-        <tr></tr>
+    <!-- Buttons -->
+    <div class="text-center mt-4">
+      <button class="btn btn-success px-4 me-2" (click)="submit()">
+        Save
+      </button>
 
-        <tr>
-            <th></th>
-            <td align="left" colspan="2">
-                <button (click)="submit()">save</button> &nbsp;
-                <button (click)="forward('courselist')">list</button>
-            </td>
-        </tr>
-    </table>
+      <button class="btn btn-primary px-4 me-2" (click)="forward('/courselist')">
+        List
+      </button>
+
+      <button class="btn btn-warning px-4" (click)="reset()">
+        Reset
+      </button>
+    </div>
+
+  </div>
+
 </div>
- 
