@@ -83,7 +83,9 @@
         "SubscriptionList": "Subscription List",
         "Cache": "Cache",
         "AddCache": "Add Cache",
-        "CacheList": "Cache List"
+        "CacheList": "Cache List",
+                "History":"History"
+
     },
     "Navbar": {
         "Role": "Role"
@@ -175,5 +177,36 @@
             "ACTIVE": "Active",
             "INACTIVE": "Inactive"
         }
+    },
+    "HISTORY": {
+        "TITLE": "History List",
+        "ADD_TITLE": "Add History",
+        "UPDATE_TITLE": "Update History",
+        "CODE": "History Code",
+        "APPROVED_BY": "Approved By",
+        "APPROVED_DATE": "Approved Date",
+        "STATUS": "Status",
+        "EDIT": "Edit",
+        "DELETE": "Delete",
+        "SEARCH": "Search",
+        "RESET": "Reset",
+        "PREVIOUS": "Previous",
+        "NEXT": "Next",
+        "NEW": "New",
+        "BACK": "Back",
+        "SAVE": "Save",
+        "SELECT_STATUS": "-- Select Status --",
+        "SELECT_APPROVED_BY": "Select ApprovedBy",
+        "SEARCH_PLACEHOLDER": "Search by History Code",
+        "ENTER_CODE": "Enter History Code",
+        "ENTER_APPROVER": "Enter Approver Name",
+        "ENTER_APPROVER_NAME": "Enter Approver Name",
+        "REQUIRED": "*",
+        "STATUS_APPROVED": "APPROVED",
+        "STATUS_PENDING": "PENDING",
+        "STATUS_REJECTED": "REJECTED",
+        "STATUS_UNDER_REVIEW": "UNDER REVIEW",
+        "NO_DATA": "No data available. Click Back to return.",
+        "SL_NO": "S.No"
     }
 }

@@ -1,0 +1,96 @@
+<div class="role-bg d-flex justify-content-center align-items-center">
+    <div class="card shadow-lg p-4 role-card">
+
+        <!-- Header -->
+        <h3 class="text-center text-primary mb-3">
+            <span *ngIf="!form.data.id">{{ 'HISTORY.ADD_TITLE' | translate }}</span>
+            <span *ngIf="form.data.id > 0">{{ 'HISTORY.UPDATE_TITLE' | translate }}</span>
+        </h3>
+
+        <!-- Message -->
+        <div *ngIf="form.message"
+             class="alert text-center"
+             [ngClass]="form.error ? 'alert-danger' : 'alert-success'">
+            {{ form.message }}
+        </div>
+
+        <!-- History Code -->
+        <div class="mb-3">
+            <label class="form-label">
+                {{ 'HISTORY.CODE' | translate }} 
+                <span class="text-danger">{{ 'HISTORY.REQUIRED' | translate }}</span>
+            </label>
+            <input type="text"
+                   class="form-control form-control-lg"
+                   name="historyCode"
+                   [(ngModel)]="form.data.historyCode"
+                   [placeholder]="'HISTORY.ENTER_CODE' | translate">
+            <small class="text-danger" *ngIf="form.inputerror.historyCode">
+                {{form.inputerror.historyCode}}
+            </small>
+        </div>
+
+        <!-- Approved By -->
+        <div class="mb-3">
+            <label class="form-label">
+                {{ 'HISTORY.APPROVED_BY' | translate }} 
+                <span class="text-danger">{{ 'HISTORY.REQUIRED' | translate }}</span>
+            </label>
+            <input type="text"
+                   class="form-control form-control-lg"
+                   name="approvedBy"
+                   [(ngModel)]="form.data.approvedBy"
+                   [placeholder]="'HISTORY.ENTER_APPROVER' | translate">
+            <small class="text-danger" *ngIf="form.inputerror.approvedBy">
+                {{form.inputerror.approvedBy}}
+            </small>
+        </div>
+
+        <!-- Approved Date -->
+        <div class="mb-3">
+            <label class="form-label">
+                {{ 'HISTORY.APPROVED_DATE' | translate }} 
+                <span class="text-danger">{{ 'HISTORY.REQUIRED' | translate }}</span>
+            </label>
+            <input type="date"
+                   class="form-control form-control-lg"
+                   name="approvedDate"
+                   [(ngModel)]="form.data.approvedDate">
+            <small class="text-danger" *ngIf="form.inputerror.approvedDate">
+                {{form.inputerror.approvedDate}}
+            </small>
+        </div>
+
+        <!-- Status -->
+        <div class="mb-3">
+            <label class="form-label">
+                {{ 'HISTORY.STATUS' | translate }} 
+                <span class="text-danger">{{ 'HISTORY.REQUIRED' | translate }}</span>
+            </label>
+            <select class="form-select form-select-lg"
+                    name="status"
+                    [(ngModel)]="form.data.status">
+                <option value="">{{ 'HISTORY.SELECT_STATUS' | translate }}</option>
+                <option value="APPROVED">{{ 'HISTORY.STATUS_APPROVED' | translate }}</option>
+                <option value="PENDING">{{ 'HISTORY.STATUS_PENDING' | translate }}</option>
+                <option value="REJECTED">{{ 'HISTORY.STATUS_REJECTED' | translate }}</option>
+                <option value="UNDER_REVIEW">{{ 'HISTORY.STATUS_UNDER_REVIEW' | translate }}</option>
+            </select>
+            <small class="text-danger" *ngIf="form.inputerror.status">
+                {{form.inputerror.status}}
+            </small>
+        </div>
+
+        <!-- Buttons -->
+        <div class="text-center mt-4">
+            <button class="btn btn-success px-4 me-2" (click)="submit()">
+                {{ 'HISTORY.SAVE' | translate }}
+            </button>
+
+            <button class="btn btn-warning px-4" (click)="reset()">
+                {{ 'HISTORY.RESET' | translate }}
+            </button>
+        </div>
+
+    </div>
+</div>

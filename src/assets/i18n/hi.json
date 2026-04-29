@@ -83,7 +83,8 @@
         "SubscriptionList": "सब्सक्रिप्शन सूची",
         "Cache": "कैश",
         "AddCache": "कैश जोड़ें",
-        "CacheList": "कैश सूची"
+        "CacheList": "कैश सूची",
+        "History":"इतिहास"
     },
     "Navbar": {
         "Role": "भूमिका"
@@ -175,5 +176,36 @@
             "ACTIVE": "सक्रिय",
             "INACTIVE": "निष्क्रिय"
         }
+    },
+    "HISTORY": {
+        "TITLE": "इतिहास सूची",
+        "ADD_TITLE": "इतिहास जोड़ें",
+        "UPDATE_TITLE": "इतिहास अपडेट करें",
+        "CODE": "इतिहास कोड",
+        "APPROVED_BY": "द्वारा अनुमोदित",
+        "APPROVED_DATE": "अनुमोदन तारीख",
+        "STATUS": "स्थिति",
+        "EDIT": "संपादित करें",
+        "DELETE": "हटाएं",
+        "SEARCH": "खोजें",
+        "RESET": "रीसेट करें",
+        "PREVIOUS": "पिछला",
+        "NEXT": "अगला",
+        "NEW": "नया",
+        "BACK": "वापस जाएं",
+        "SAVE": "सहेजें",
+        "SELECT_STATUS": "-- स्थिति चुनें --",
+        "SELECT_APPROVED_BY": "अनुमोदक चुनें",
+        "SEARCH_PLACEHOLDER": "इतिहास कोड द्वारा खोजें",
+        "ENTER_CODE": "इतिहास कोड दर्ज करें",
+        "ENTER_APPROVER": "अनुमोदक का नाम दर्ज करें",
+        "ENTER_APPROVER_NAME": "अनुमोदक का नाम दर्ज करें",
+        "REQUIRED": "*",
+        "STATUS_APPROVED": "अनुमोदित",
+        "STATUS_PENDING": "लंबित",
+        "STATUS_REJECTED": "अस्वीकृत",
+        "STATUS_UNDER_REVIEW": "समीक्षाधीन",
+        "NO_DATA": "कोई डेटा उपलब्ध नहीं। वापस जाने के लिए बैक पर क्लिक करें।",
+        "SL_NO": "क्रम संख्या"
     }
 }

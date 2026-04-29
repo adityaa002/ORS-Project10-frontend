@@ -1,5 +1,5 @@
 .role-bg {
-  min-height: calc(100vh - 70px); /* navbar height adjust */
+  min-height: calc(100vh - 30px); /* navbar height adjust */
    background: url('/assets/image/addRole.jpg') no-repeat center center;
 
   

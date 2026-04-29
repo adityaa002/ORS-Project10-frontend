@@ -29,6 +29,7 @@ export class EndpointServiceService {
   public RULE = this.SERVER_URL + "/Rule";
   public SUBSCRIPTIONUSAGE = this.SERVER_URL + "/SubscriptionUsage";
   public CACHE = this.SERVER_URL + "/Cache";
+  public HISTORY = this.SERVER_URL + "/History";
  
 
   public JASPERREPORT = this.SERVER_URL + "/Jasper";

@@ -46,8 +46,18 @@ export class BaseCtl implements OnInit {
 
         serviceLocator.getPathVariable(route, function (params: any) {
             _self.form.data.id = params["id"];
-        })
+        });
 
+        // const dbError = sessionStorage.getItem('dbServiceError');
+        // if (dbError) {
+        //     this.form.message = dbError;
+        //     this.form.error = true;
+        //     // ❌ Don't clear here
+        //     // sessionStorage.removeItem('dbServiceError');
+        // } else {
+        //     this.form.message = '';
+        //     this.form.error = false;
+        // }
 
     }
 
@@ -56,6 +66,21 @@ export class BaseCtl implements OnInit {
         this.preload();
         if (this.form.data.id && this.form.data.id > 0) {
             this.display();
+        }
+
+
+        const dbError = sessionStorage.getItem('dbServiceError');
+        if (dbError) {
+            this.form.message = dbError;
+            this.form.error = true;
+        }
+
+        // Check if success message stored
+        const successMsg = sessionStorage.getItem('successMessage');
+        if (successMsg) {
+            this.form.message = successMsg;
+            this.form.error = false;
+            sessionStorage.removeItem('successMessage'); // clear after showing once
         }
     }
 

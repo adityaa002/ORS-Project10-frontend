@@ -176,8 +176,7 @@
         </ul>
       </li>
 
-      <!-- AUDIT -->
-      <li class="nav-item dropdown" *ngIf="isLogin()">
+       <!-- <li class="nav-item dropdown" *ngIf="isLogin()">
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Audit' | translate }}</a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" [routerLink]="['/audit']">{{ 'Links.Audit' | translate }}</a></li>
@@ -185,8 +184,7 @@
         </ul>
       </li>
 
-      <!-- RESOLUTION -->
-      <li class="nav-item dropdown" *ngIf="isLogin()">
+       <li class="nav-item dropdown" *ngIf="isLogin()">
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Resolution' | translate }}</a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" [routerLink]="['/resolution']">{{ 'Links.AddResolution' | translate }}</a></li>
@@ -194,14 +192,13 @@
         </ul>
       </li>
 
-      <!-- PRESCRIPTION -->
-      <li class="nav-item dropdown" *ngIf="isLogin()">
+       <li class="nav-item dropdown" *ngIf="isLogin()">
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Prescription' | translate }}</a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" [routerLink]="['/prescription']">{{ 'Links.AddPrescription' | translate }}</a></li>
           <li><a class="dropdown-item" [routerLink]="['/prescriptionList']">{{ 'Links.PrescriptionList' | translate }}</a></li>
         </ul>
-      </li>
+      </li> -->
 
       <!-- QUOTA -->
       <li class="nav-item dropdown" *ngIf="isLogin()">
@@ -256,6 +253,16 @@
           <li><a class="dropdown-item" [routerLink]="['/cachelist']">{{ 'Links.CacheList' | translate }}</a></li>
         </ul>
       </li>
+
+          <!-- History -->
+      <li class="nav-item dropdown" *ngIf="isLogin()">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.History' | translate }}</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['/history']">{{ 'HISTORY.ADD_TITLE' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/historyList']">{{ 'HISTORY.TITLE' | translate }}</a></li>
+        </ul>
+      </li>
+
 
     </ul>
 

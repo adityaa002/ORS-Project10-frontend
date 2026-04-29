@@ -60,6 +60,8 @@ import { SubscriptionusageComponent } from './subscriptionusage/subscriptionusag
 import { SubscriptionusagelistComponent } from './subscriptionusage/subscriptionusagelist/subscriptionusagelist.component';
 import { CacheComponent } from './cache/cache.component';
 import { CachelistComponent } from './cache/cachelist/cachelist.component';
+import { HistoryComponent } from './history/history.component';
+import { HistorylistComponent } from './history/historylist/historylist.component';
   
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -114,7 +116,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     SubscriptionusageComponent,
     SubscriptionusagelistComponent,
     CacheComponent,
-    CachelistComponent
+    CachelistComponent,
+    HistoryComponent,
+    HistorylistComponent
       
   ],
   imports: [
@@ -123,6 +127,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     FormsModule,
     TranslateModule.forRoot({
+         defaultLanguage: 'en',
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,

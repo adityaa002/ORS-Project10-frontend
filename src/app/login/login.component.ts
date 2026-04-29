@@ -23,18 +23,27 @@ export class LoginComponent {
   }
 
   ngOnInit(): void {
+    
     this.route.queryParams.subscribe(params => {
+      console.log('📋 Query Params:', params);
+      console.log('📋 errorMessage:', params['errorMessage']);
+      console.log('📋 successMessage:', params['successMessage']);
 
       if (params['successMessage']) {
+        console.log('✅ Setting success message:', params['successMessage']);
         this.form.message = params['successMessage'];
         this.form.error = false;
+        console.log('Updated form:', this.form);
       }
 
       if (params['errorMessage']) {
+        console.log('❌ Setting error message:', params['errorMessage']);
         this.form.message = params['errorMessage'];
         this.form.error = true;
+        console.log('Updated form:', this.form);
       }
     });
+
   }
 
   signIn() {

@@ -2,13 +2,13 @@ import { Component, ElementRef, QueryList, ViewChildren } from "@angular/core";
 import { BaseCtl } from "./base.component";
 import { ServiceLocatorService } from "./service-locator.service";
 import { ActivatedRoute } from "@angular/router";
- 
+
 @Component({
     template: ''
 })
 export class BaseListCtl extends BaseCtl {
 
-    @ViewChildren('checkboxes') checkboxes!: QueryList<ElementRef> ;     //4 or 5 as per loop checkboxes will store
+    @ViewChildren('checkboxes') checkboxes!: QueryList<ElementRef>;     //4 or 5 as per loop checkboxes will store
 
     deleteRecordList: any[] = [];
 
@@ -16,9 +16,23 @@ export class BaseListCtl extends BaseCtl {
 
     constructor(endpoint: String, locator: ServiceLocatorService, route: ActivatedRoute) {
         super(endpoint, locator, route);
+
+        // const dbError = sessionStorage.getItem('dbServiceError');
+        // if (dbError) {
+        //     this.form.message = dbError;
+        //     this.form.error = true;
+        //     // ❌ Don't clear here
+        // } else {
+        //     this.form.message = '';
+        //     this.form.error = false;
+        // }
     }
 
+
+
+
     override ngOnInit() {
+          super.ngOnInit();
         this.preload();
         this.search();
     }
@@ -45,7 +59,7 @@ export class BaseListCtl extends BaseCtl {
         this.isMasterSel = totalChecked === this.form.list.length;
     }
 
-      override deleteMany() {
+    override deleteMany() {
         this.form.error = false;
         this.deleteRecordList = [];
 

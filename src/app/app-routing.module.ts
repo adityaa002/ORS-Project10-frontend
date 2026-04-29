@@ -46,6 +46,8 @@ import { SubscriptionusageComponent } from './subscriptionusage/subscriptionusag
 import { SubscriptionusagelistComponent } from './subscriptionusage/subscriptionusagelist/subscriptionusagelist.component';
 import { CacheComponent } from './cache/cache.component';
 import { CachelistComponent } from './cache/cachelist/cachelist.component';
+import { HistoryComponent } from './history/history.component';
+import { HistorylistComponent } from './history/historylist/historylist.component';
 
 const routes: Routes = [
   {
@@ -310,6 +312,19 @@ const routes: Routes = [
   {
     path: 'cache/:id',
     component: CacheComponent
+  },
+  {
+    path: 'history',
+    component: HistoryComponent
+  },
+
+  {
+    path: 'historyList',
+    component: HistorylistComponent
+  },
+  {
+    path: 'history/:id',
+    component: HistoryComponent
   },
 
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
