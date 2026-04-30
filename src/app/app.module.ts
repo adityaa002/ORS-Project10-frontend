@@ -62,7 +62,7 @@ import { CacheComponent } from './cache/cache.component';
 import { CachelistComponent } from './cache/cachelist/cachelist.component';
 import { HistoryComponent } from './history/history.component';
 import { HistorylistComponent } from './history/historylist/historylist.component';
-  
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -119,7 +119,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CachelistComponent,
     HistoryComponent,
     HistorylistComponent
-      
+
   ],
   imports: [
     BrowserModule,
@@ -127,7 +127,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     FormsModule,
     TranslateModule.forRoot({
-         defaultLanguage: 'en',
+      defaultLanguage: 'en',
+
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
@@ -137,15 +138,15 @@ export function HttpLoaderFactory(http: HttpClient) {
 
   ],
   providers: [{
-    provide: HTTP_INTERCEPTORS, 
+    provide: HTTP_INTERCEPTORS,
     useClass: AuthServiceService,
-     multi: true
+    multi: true
   },
     HttpServiceService,
     EndpointServiceService,
     AuthServiceService,
     HttpServiceService
   ],
-  bootstrap: [AppComponent   ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
