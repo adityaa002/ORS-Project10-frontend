@@ -1,4 +1,4 @@
 FROM nginx:alpine
-COPY dist/orsproject10-ui/ /usr/share/nginx/html
+COPY dist/app/ /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
