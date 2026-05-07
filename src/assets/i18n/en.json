@@ -84,8 +84,10 @@
         "Cache": "Cache",
         "AddCache": "Add Cache",
         "CacheList": "Cache List",
-                "History":"History"
-
+        "History": "History",
+        "Password": "Password",
+        "AddPassword": "Add Password",
+        "PasswordList": "Password List"
     },
     "Navbar": {
         "Role": "Role"
@@ -208,5 +210,54 @@
         "STATUS_UNDER_REVIEW": "UNDER REVIEW",
         "NO_DATA": "No data available. Click Back to return.",
         "SL_NO": "S.No"
+    },
+    "PasswordForm": {
+        "AddPassword": "Add Password",
+        "UpdatePassword": "Update Password",
+        "PasswordCode": "Password Code",
+        "UserName": "User Name",
+        "PasswordValue": "Password Value",
+        "Status": "Status",
+        "Placeholders": {
+            "PasswordCode": "Enter Password Code",
+            "UserName": "Enter User Name",
+            "PasswordValue": "Enter Password"
+        },
+        "StatusOptions": {
+            "Select": "------------Select------------",
+            "Active": "Active",
+            "Inactive": "Inactive"
+        },
+        "Buttons": {
+            "Save": "Save",
+            "Reset": "Reset"
+        }
+    },
+    "PasswordList": {
+        "Title": "Password List",
+        "SearchByPasswordCode": "Search By Password Code",
+        "SelectUserName": "Select User Name",
+        "NoRecordFound": "No Record Found",
+        "Table": {
+            "SNo": "S.No",
+            "PasswordCode": "Password Code",
+            "UserName": "User Name",
+            "PasswordValue": "Password Value",
+            "Status": "Status",
+            "Edit": "Edit"
+        },
+        "Buttons": {
+            "Search": "Search",
+            "Reset": "Reset",
+            "Previous": "Previous",
+            "Next": "Next",
+            "New": "New",
+            "Delete": "Delete",
+            "Back": "Back"
+        },
+        "Status": {
+            "ACTIVE": "ACTIVE",
+            "INACTIVE": "INACTIVE"
+        }
     }
 }

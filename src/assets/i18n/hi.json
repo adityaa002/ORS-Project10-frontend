@@ -84,7 +84,10 @@
         "Cache": "कैश",
         "AddCache": "कैश जोड़ें",
         "CacheList": "कैश सूची",
-        "History":"इतिहास"
+        "History": "इतिहास",
+        "Password": "पासवर्ड",
+        "AddPassword": "पासवर्ड जोड़ें",
+        "PasswordList": "पासवर्ड सूची"
     },
     "Navbar": {
         "Role": "भूमिका"
@@ -207,5 +210,54 @@
         "STATUS_UNDER_REVIEW": "समीक्षाधीन",
         "NO_DATA": "कोई डेटा उपलब्ध नहीं। वापस जाने के लिए बैक पर क्लिक करें।",
         "SL_NO": "क्रम संख्या"
+    },
+    "PasswordForm": {
+        "AddPassword": "पासवर्ड जोड़ें",
+        "UpdatePassword": "पासवर्ड अपडेट करें",
+        "PasswordCode": "पासवर्ड कोड",
+        "UserName": "यूज़र नेम",
+        "PasswordValue": "पासवर्ड वैल्यू",
+        "Status": "स्थिति",
+        "Placeholders": {
+            "PasswordCode": "पासवर्ड कोड दर्ज करें",
+            "UserName": "यूज़र नेम दर्ज करें",
+            "PasswordValue": "पासवर्ड दर्ज करें"
+        },
+        "StatusOptions": {
+            "Select": "------------चुनें------------",
+            "Active": "सक्रिय",
+            "Inactive": "निष्क्रिय"
+        },
+        "Buttons": {
+            "Save": "सहेजें",
+            "Reset": "रीसेट"
+        }
+    },
+    "PasswordList": {
+        "Title": "पासवर्ड सूची",
+        "SearchByPasswordCode": "पासवर्ड कोड से खोजें",
+        "SelectUserName": "यूज़र नेम चुनें",
+        "NoRecordFound": "कोई रिकॉर्ड नहीं मिला",
+        "Table": {
+            "SNo": "क्रम संख्या",
+            "PasswordCode": "पासवर्ड कोड",
+            "UserName": "यूज़र नेम",
+            "PasswordValue": "पासवर्ड वैल्यू",
+            "Status": "स्थिति",
+            "Edit": "संपादित करें"
+        },
+        "Buttons": {
+            "Search": "खोजें",
+            "Reset": "रीसेट",
+            "Previous": "पिछला",
+            "Next": "अगला",
+            "New": "नया",
+            "Delete": "हटाएं",
+            "Back": "वापस"
+        },
+        "Status": {
+            "ACTIVE": "सक्रिय",
+            "INACTIVE": "निष्क्रिय"
+        }
     }
 }

@@ -62,6 +62,8 @@ import { CacheComponent } from './cache/cache.component';
 import { CachelistComponent } from './cache/cachelist/cachelist.component';
 import { HistoryComponent } from './history/history.component';
 import { HistorylistComponent } from './history/historylist/historylist.component';
+import { PasswordComponent } from './password/password.component';
+import { PasswordlistComponent } from './password/passwordlist/passwordlist.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -118,7 +120,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     CacheComponent,
     CachelistComponent,
     HistoryComponent,
-    HistorylistComponent
+    HistorylistComponent,
+    PasswordComponent,
+    PasswordlistComponent
 
   ],
   imports: [

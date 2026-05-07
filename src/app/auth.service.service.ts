@@ -42,9 +42,14 @@ export class AuthServiceService implements HttpInterceptor {
       
         
         if (error.status === 401 || error.status === 403) {
-           localStorage.clear();
+          console.log('Token Invalid/Forbidden - Logging out');
+          localStorage.clear();
           this.router.navigate(['/login'], { queryParams: { errorMessage: error.error } });
          }
+
+       
+         
+        console.log(' Other error - propagate');
         return throwError(() => error);
       })
     );

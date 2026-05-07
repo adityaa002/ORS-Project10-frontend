@@ -48,6 +48,8 @@ import { CacheComponent } from './cache/cache.component';
 import { CachelistComponent } from './cache/cachelist/cachelist.component';
 import { HistoryComponent } from './history/history.component';
 import { HistorylistComponent } from './history/historylist/historylist.component';
+import { PasswordComponent } from './password/password.component';
+import { PasswordlistComponent } from './password/passwordlist/passwordlist.component';
 
 const routes: Routes = [
   {
@@ -325,6 +327,19 @@ const routes: Routes = [
   {
     path: 'history/:id',
     component: HistoryComponent
+  },
+  {
+    path: 'password',
+    component: PasswordComponent
+  },
+
+  {
+    path: 'passwordList',
+    component: PasswordlistComponent
+  },
+  {
+    path: 'password/:id',
+    component: PasswordComponent
   },
 
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },

@@ -253,24 +253,26 @@
         </ul>
       </li>
 
-      <!-- CACHE -->
+      <!-- Password -->
       <li class="nav-item dropdown" *ngIf="isLogin()">
-        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Cache' | translate }}</a>
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+          {{'Links.Password' | translate}}
+        </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" [routerLink]="['/cache']">{{ 'Links.AddCache' | translate }}</a></li>
-          <li><a class="dropdown-item" [routerLink]="['/cachelist']">{{ 'Links.CacheList' | translate }}</a></li>
+          <li>
+            <a class="dropdown-item" [routerLink]="['/password']">
+              {{'Links.AddPassword' | translate}}
+           </a>
+          </li>
+          <li>
+            <a class="dropdown-item" [routerLink]="['/passwordList']">
+              {{'Links.PasswordList' | translate}}
+            </a>
+          </li>
         </ul>
       </li>
 
-      <!-- History -->
-      <!--    <li class="nav-item dropdown" *ngIf="isLogin()">
-        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.History' | translate }}</a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" [routerLink]="['/history']">{{ 'HISTORY.ADD_TITLE' | translate }}</a></li>
-          <li><a class="dropdown-item" [routerLink]="['/historyList']">{{ 'HISTORY.TITLE' | translate }}</a></li>
-        </ul>
-      </li>
--->
+
 
     </ul>
 
