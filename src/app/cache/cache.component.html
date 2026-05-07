@@ -13,9 +13,7 @@
     </h3>
 
     <!-- Message -->
-    <div *ngIf="form.message"
-         class="alert text-center"
-         [ngClass]="form.error ? 'alert-danger' : 'alert-success'">
+    <div *ngIf="form.message" class="alert text-center" [ngClass]="form.error ? 'alert-danger' : 'alert-success'">
       {{ form.message }}
     </div>
 
@@ -25,11 +23,8 @@
         {{ 'CacheForm.CacheCode' | translate }}
         <span class="text-danger">*</span>
       </label>
-      <input type="text"
-             class="form-control form-control-lg"
-             name="cacheCode"
-             [(ngModel)]="form.data.cacheCode"
-             [placeholder]="'CacheForm.Placeholders.CacheCode' | translate">
+      <input type="text" class="form-control form-control-lg" name="cacheCode" [(ngModel)]="form.data.cacheCode"
+        [placeholder]="'CacheForm.Placeholders.CacheCode' | translate">
       <small class="text-danger" *ngIf="form.inputerror.cacheCode">
         {{form.inputerror.cacheCode}}
       </small>
@@ -41,11 +36,8 @@
         {{ 'CacheForm.KeyName' | translate }}
         <span class="text-danger">*</span>
       </label>
-      <input type="text"
-             class="form-control form-control-lg"
-             name="keyName"
-             [(ngModel)]="form.data.keyName"
-             [placeholder]="'CacheForm.Placeholders.KeyName' | translate">
+      <input type="text" class="form-control form-control-lg" name="keyName" [(ngModel)]="form.data.keyName"
+        [placeholder]="'CacheForm.Placeholders.KeyName' | translate">
       <small class="text-danger" *ngIf="form.inputerror.keyName">
         {{form.inputerror.keyName}}
       </small>
@@ -57,11 +49,8 @@
         {{ 'CacheForm.Value' | translate }}
         <span class="text-danger">*</span>
       </label>
-      <input type="text"
-             class="form-control form-control-lg"
-             name="value"
-             [(ngModel)]="form.data.value"
-             [placeholder]="'CacheForm.Placeholders.Value' | translate">
+      <input type="text" class="form-control form-control-lg" name="value" [(ngModel)]="form.data.value"
+        [placeholder]="'CacheForm.Placeholders.Value' | translate">
       <small class="text-danger" *ngIf="form.inputerror.value">
         {{form.inputerror.value}}
       </small>
@@ -73,9 +62,7 @@
         {{ 'CacheForm.Status' | translate }}
         <span class="text-danger">*</span>
       </label>
-      <select class="form-control"
-              name="status"
-              [(ngModel)]="form.data.status">
+      <select class="form-control" name="status" [(ngModel)]="form.data.status">
         <option value="">
           {{ 'CacheForm.StatusOptions.Select' | translate }}
         </option>
@@ -90,6 +77,7 @@
         {{form.inputerror.status}}
       </small>
     </div>
+
 
     <!-- Buttons -->
     <div class="text-center mt-4">

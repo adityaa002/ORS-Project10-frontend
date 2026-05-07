@@ -17,22 +17,13 @@ export class BaseListCtl extends BaseCtl {
     constructor(endpoint: String, locator: ServiceLocatorService, route: ActivatedRoute) {
         super(endpoint, locator, route);
 
-        // const dbError = sessionStorage.getItem('dbServiceError');
-        // if (dbError) {
-        //     this.form.message = dbError;
-        //     this.form.error = true;
-        //     // ❌ Don't clear here
-        // } else {
-        //     this.form.message = '';
-        //     this.form.error = false;
-        // }
+        
     }
 
 
 
 
     override ngOnInit() {
-          super.ngOnInit();
         this.preload();
         this.search();
     }

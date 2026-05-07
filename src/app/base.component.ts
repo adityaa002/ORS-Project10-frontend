@@ -48,16 +48,6 @@ export class BaseCtl implements OnInit {
             _self.form.data.id = params["id"];
         });
 
-        // const dbError = sessionStorage.getItem('dbServiceError');
-        // if (dbError) {
-        //     this.form.message = dbError;
-        //     this.form.error = true;
-        //     // ❌ Don't clear here
-        //     // sessionStorage.removeItem('dbServiceError');
-        // } else {
-        //     this.form.message = '';
-        //     this.form.error = false;
-        // }
 
     }
 
@@ -69,28 +59,15 @@ export class BaseCtl implements OnInit {
         }
 
 
-        const dbError = sessionStorage.getItem('dbServiceError');
-        if (dbError) {
-            this.form.message = dbError;
-            this.form.error = true;
-        }
-
-        // Check if success message stored
-        const successMsg = sessionStorage.getItem('successMessage');
-        if (successMsg) {
-            this.form.message = successMsg;
-            this.form.error = false;
-            sessionStorage.removeItem('successMessage'); // clear after showing once
-        }
     }
 
 
     preload() {
         this.serviceLocator.httpService.get(this.api.preload, (res: any) => {
             console.log("preload response:", res);
-            // handle both success true and false
+           
             if (res.result) {
-                this.form.preload = res.result;  // ← always set if result exists
+                this.form.preload = res.result;  
             } else {
                 this.form.error = true;
                 this.form.message = res.result.message;

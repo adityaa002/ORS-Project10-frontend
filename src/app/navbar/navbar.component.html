@@ -97,7 +97,8 @@
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.User' | translate }}</a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" (click)="forward()">{{ 'Links.MyProfile' | translate }}</a></li>
-          <li><a class="dropdown-item" [routerLink]="['/changepassword']">{{ 'Links.ChangePassword' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/changepassword']">{{ 'Links.ChangePassword' | translate }}</a>
+          </li>
           <li><a class="dropdown-item" [routerLink]="['/user']">{{ 'Links.AddUser' | translate }}</a></li>
           <li><a class="dropdown-item" [routerLink]="['/userlist']">{{ 'Links.UserList' | translate }}</a></li>
         </ul>
@@ -135,8 +136,10 @@
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Marksheet' | translate }}</a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" [routerLink]="['/marksheet']">{{ 'Links.AddMarksheet' | translate }}</a></li>
-          <li><a class="dropdown-item" [routerLink]="['/marksheetlist']">{{ 'Links.MarksheetList' | translate }}</a></li>
-          <li><a class="dropdown-item" [routerLink]="['/marksheetmeritlist']">{{ 'Links.MarksheetMeritList' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/marksheetlist']">{{ 'Links.MarksheetList' | translate }}</a>
+          </li>
+          <li><a class="dropdown-item" [routerLink]="['/marksheetmeritlist']">{{ 'Links.MarksheetMeritList' | translate
+              }}</a></li>
         </ul>
       </li>
 
@@ -163,7 +166,8 @@
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Timetable' | translate }}</a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" [routerLink]="['/timetable']">{{ 'Links.AddTimetable' | translate }}</a></li>
-          <li><a class="dropdown-item" [routerLink]="['/timetablelist']">{{ 'Links.TimetableList' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/timetablelist']">{{ 'Links.TimetableList' | translate }}</a>
+          </li>
         </ul>
       </li>
 
@@ -176,7 +180,7 @@
         </ul>
       </li>
 
-       <!-- <li class="nav-item dropdown" *ngIf="isLogin()">
+      <!-- <li class="nav-item dropdown" *ngIf="isLogin()">
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Audit' | translate }}</a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" [routerLink]="['/audit']">{{ 'Links.Audit' | translate }}</a></li>
@@ -214,7 +218,8 @@
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Decryption' | translate }}</a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" [routerLink]="['/decryption']">{{ 'Links.AddDecryption' | translate }}</a></li>
-          <li><a class="dropdown-item" [routerLink]="['/decryptionList']">{{ 'Links.DecryptionList' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/decryptionList']">{{ 'Links.DecryptionList' | translate }}</a>
+          </li>
         </ul>
       </li>
 
@@ -223,7 +228,8 @@
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.BlockList' | translate }}</a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" [routerLink]="['/blockList']">{{ 'Links.AddBlockList' | translate }}</a></li>
-          <li><a class="dropdown-item" [routerLink]="['/blockListList']">{{ 'Links.BlockListList' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/blockListList']">{{ 'Links.BlockListList' | translate }}</a>
+          </li>
         </ul>
       </li>
 
@@ -240,8 +246,10 @@
       <li class="nav-item dropdown" *ngIf="isLogin()">
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.Subscription' | translate }}</a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" [routerLink]="['/subscriptionUsage']">{{ 'Links.AddSubscription' | translate }}</a></li>
-          <li><a class="dropdown-item" [routerLink]="['/subscriptionUsageList']">{{ 'Links.SubscriptionList' | translate }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/subscriptionUsage']">{{ 'Links.AddSubscription' | translate
+              }}</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/subscriptionUsageList']">{{ 'Links.SubscriptionList' | translate
+              }}</a></li>
         </ul>
       </li>
 
@@ -254,15 +262,15 @@
         </ul>
       </li>
 
-          <!-- History -->
-      <li class="nav-item dropdown" *ngIf="isLogin()">
+      <!-- History -->
+      <!--    <li class="nav-item dropdown" *ngIf="isLogin()">
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ 'Links.History' | translate }}</a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" [routerLink]="['/history']">{{ 'HISTORY.ADD_TITLE' | translate }}</a></li>
           <li><a class="dropdown-item" [routerLink]="['/historyList']">{{ 'HISTORY.TITLE' | translate }}</a></li>
         </ul>
       </li>
-
+-->
 
     </ul>
 
@@ -288,7 +296,7 @@
 
       <!-- Logo -->
       <a routerLink="/dashboard" class="d-flex align-items-center">
-        <img src="/assets/image/customLogo.jpg" class="logo" style="height:40px;">
+        <img src="/assets/image/customLogo.png" class="logo" style="height:40px; width: 150px; ">
       </a>
 
     </div>
