@@ -1,26 +1,23 @@
-#ORSProject-10 UI
+ORSProject-10 UI
 Overview
 
-ORSProject-10 UI is the frontend application developed using Angular 15 following component-based architecture and modular frontend development practices. The application is designed to provide a responsive, secure, and user-friendly interface for interacting with backend REST APIs.
+ORSProject-10 UI is a frontend application developed using Angular 15 following modern component-based architecture and modular frontend development practices. The application provides a responsive, scalable, and user-friendly interface for interacting with backend REST APIs.
 
-The frontend communicates with the Spring Boot backend using HTTP client services and implements authentication, authorization, form validation, routing, and reusable UI components.
+The frontend communicates seamlessly with the Spring Boot backend and supports features like authentication, authorization, routing, validation, reusable components, and secure API integration.
 
 Frontend Development Approach
 
-The frontend is developed using modern Angular development standards with focus on:
+The frontend is designed using industry-standard Angular practices with focus on:
 
-Modular architecture
-Reusable components
-Clean UI structure
-API integration
-Reactive form handling
-Route-based navigation
-Scalable frontend design
-Responsive user experience
+Reusable Components
+Modular Structure
+Responsive UI Design
+REST API Integration
+Reactive Form Handling
+Route-Based Navigation
+Scalable Frontend Architecture
+JWT Authentication Integration
 Frontend Architecture
-
-The application follows a structured Angular architecture.
-
 Components
     ↓
 Services
@@ -31,83 +28,77 @@ REST APIs
     ↓
 Spring Boot Backend
 Core Frontend Modules
-Components
+1. Components
 
-Responsible for rendering UI and handling user interaction.
+Responsible for rendering UI and managing user interaction.
 
 Responsibilities:
-
 UI rendering
 Event handling
 Form interaction
 Data presentation
-Services
+2. Services
 
-Handles API communication and shared business functionality.
+Used for centralized API communication and reusable business logic.
 
 Responsibilities:
-
 REST API integration
-Token handling
-Shared logic management
-Reusable utility functions
-Routing Module
+Token management
+Shared functionality
+Utility handling
+3. Routing Module
 
-Manages navigation and route protection.
+Handles application navigation and route protection.
 
 Responsibilities:
-
 Route configuration
 Navigation handling
-Guard implementation
+Route guards
 Lazy loading support
-Forms Module
+4. Forms Module
 
-Used for form validation and user input management.
+Manages user input and validation using Reactive Forms.
 
 Responsibilities:
-
-Reactive forms
-Validation handling
-Error messaging
+Reactive form handling
+Validation management
+Error handling
 User data processing
-Frontend Design Patterns Used
-1. Component-Based Architecture
+Design Patterns Used
+Component-Based Architecture
 
-The UI is divided into reusable and independent Angular components for better maintainability.
+The application is divided into reusable Angular components for maintainability and scalability.
 
-2. Service Pattern
+Service Pattern
 
-Services are used for centralized API communication and reusable business operations.
+Services are used to centralize API communication and shared operations.
 
-3. Dependency Injection
+Dependency Injection
 
-Angular dependency injection is used for loose coupling and better modularity.
+Angular Dependency Injection is used to reduce tight coupling and improve modularity.
 
-4. Reactive Programming
+Reactive Programming
 
-RxJS observables are used for asynchronous API handling and state management.
+RxJS Observables are used for asynchronous data handling and API response management.
 
 Authentication & Security
 
 The frontend integrates with JWT-based authentication.
 
 Features:
-
-Token-based login
-Secure route access
-Authorization handling
+Secure login handling
+Token-based authentication
+Route authorization
 Session persistence
-HTTP interceptor integration
+HTTP interceptor support
 API Communication
 
-The frontend communicates with backend APIs using Angular HttpClient.
+The frontend communicates with backend services using Angular HttpClient.
 
 Features:
-
-REST API integration
+REST API consumption
 Centralized API handling
-Error handling
+Error management
 Response mapping
 Frontend Technologies
 Angular 15
@@ -117,35 +108,32 @@ CSS3
 Bootstrap
 RxJS
 Angular Router
-Angular Reactive Forms
+Reactive Forms
 Development Server
 
-Run the development server:
+Start the Angular development server:
 
 ng serve
 
-Navigate to:
+Open in browser:
 
 http://localhost:4200/
 
-The application automatically reloads on source code changes.
+The application automatically reloads whenever source files are updated.
 
-Build
+Production Build
 
-To generate a production build:
+Generate optimized production build:
 
 ng build
 
-Build artifacts are generated inside the:
+Build artifacts are generated inside:
 
 dist/
-
-directory.
-
 Project Goals
-Clean and reusable frontend architecture
-Scalable UI development
+Enterprise-level frontend structure
+Reusable and maintainable UI
 Responsive user experience
+Scalable Angular development
 Secure frontend integration
-Enterprise-level Angular practices
-Seamless backend communication
+Clean API communication architecture
